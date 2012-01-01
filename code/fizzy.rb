@@ -63,7 +63,7 @@ class Fizzy; class << self
   def post path, post
     # Inject some visual features
     # of the blog (links, time)
-    html = Town.render File.read path
+    html = (Town.render File.read path).force_encoding('UTF-8')
     html.gsub!(/(?<=<h1>).+(?=<\/h1>)/) {|h| "<a href='#{link path}'>#{h}</a>"} if post == '*'
     # Time processing: russian time for russian
     # posts, nice layout, right position &c.

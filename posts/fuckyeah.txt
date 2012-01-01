@@ -14,6 +14,4 @@ all = Dir["posts/*"].fuckyeah
 Under the [WTFPL](http://www.wtfpl.net/).
 Install and use in your projects:
 
-```shell
-gem install fuckyeah
-```
+  gem install fuckyeah

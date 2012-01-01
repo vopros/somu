@@ -15,14 +15,12 @@ There is no concept of classes & objects.
 There are files. If you want to isolate a piece of code,
 place it into a different file:
 
-```
-<b>vars.mi</b>
-foo: 3
+  <b>vars.mi</b>
+  foo: 3
 
-<b>app.mi</b>
-bar: 4 + 1
-bar + ./vars foo
-```
+  <b>app.mi</b>
+  bar: 4 + 1
+  bar + ./vars foo
 
 
 This code returns `8`.

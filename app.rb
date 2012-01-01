@@ -7,12 +7,13 @@ end
 
 get '/*.css' do |css|
   content_type 'text/css', charset: 'utf-8'
-  style = "#{settings.styles}/#{css}.css"
-  # Make CSS in `styles` folder possible.
-  return File.read(style) if File.exists?(style)
-  # Compile SASS with Compass.
-  sass :"#{css}", Compass.sass_engine_options
-    .merge(views: settings.styles, style: :compact)
+  style = "#{settings.styles}/#{css}"
+  options = Compass.sass_engine_options.merge(views: settings.styles, style: :compressed)
+  # Make CSS in `styles` folder possible
+  # Compile SASS with Compass
+  return File.read("#{style}.css") if File.exists?("#{style}.css")
+  return scss css.to_sym, options if File.exists?("#{style}.scss")
+  sass css.to_sym, options
 end
 
 configure :production do
