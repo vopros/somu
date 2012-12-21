@@ -30,6 +30,12 @@ get '/assets/*.js' do
   File.read script
 end
 
+get '/instajour/:page' do
+  $page = params[:page]
+  require './settings/instajour'
+  $instajour.generate
+end
+
 get '/' do
   slim :index
 end

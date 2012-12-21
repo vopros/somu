@@ -8,6 +8,7 @@ class Instajour
     @title = title
   end
   def generate
+    @endpoint += "&max_id=#{$page}" unless $page.nil?
     response = JSON.parse open(@endpoint) {|f| f.read }
     photos = []; out = ''
 
@@ -22,15 +23,23 @@ class Instajour
 
     photos.each do |photo|
       out << "
-      <a
-        class='photo'
-        href='#{photo[:link]}'>
-        <img
-          src='#{photo[:image]}'
-          alt='#{photo[:caption]}'
-          title='#{photo[:caption]}'/>
-      </a>
-      "
+        <a
+          class='photo'
+          href='#{photo[:link]}'>
+          <img
+            src='#{photo[:image]}'
+            alt='#{photo[:caption]}'
+            title='#{photo[:caption]}'/>
+        </a>"
+    end
+
+    unless response['pagination']['next_max_id'].nil?
+      after = response['pagination']['next_max_id']
+      out << "
+        <script>
+          $('body').append('<div class=page></div>');
+          $('.page:last').load('/instajour/#{after}');
+        </script>"
     end
     out
   end
