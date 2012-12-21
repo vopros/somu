@@ -1,1 +1,0 @@
-instajour = Instajour.new '', ''

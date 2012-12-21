@@ -7,7 +7,7 @@ require 'slim'
 
 configure do
   Compass.add_project_configuration './settings/compass.rb'
-  set :show_exceptions, false #
+  #set :show_exceptions, false #
 end
 
 error { File.read $error }
@@ -32,6 +32,11 @@ end
 
 get '/' do
   slim :index
+end
+
+get 'instajour/?' do
+  require './settings/instajour'
+  slim :instajour
 end
 
 # Slim & HTML
