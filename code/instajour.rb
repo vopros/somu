@@ -35,8 +35,8 @@ class Instajour
         </a>"
     end
 
-    unless response['pagination']['next_max_id'].nil?
-      after = response['pagination']['next_max_id']
+    after = response['pagination']['next_max_id']
+    unless after.nil?
       out << "
         <script>
           $('body').append('<div class=page></div>');

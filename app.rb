@@ -15,8 +15,7 @@ set :public, $public
 set :port, $port
 
 # SASS/Compass & CSS
-get '/assets/*.css' do
-  css = params[:splat].first
+get '/assets/*.css' do |css|
   style = "#{$styles}/#{css}.css"
   return File.read(style) if File.exists?(style)
 
@@ -24,8 +23,7 @@ get '/assets/*.css' do
 end
 
 # JS & CoffeeScript
-get '/assets/*.js' do
-  js = params[:splat].first
+get '/assets/*.js' do |js|
   script = "#{$scripts}/#{js}.js"
   File.read script
 end
