@@ -38,7 +38,7 @@ class Instajour
       out << "
         <script>
           $('body').append('<div class=page></div>');
-          $('.page:last').load('/instajour/#{after}');
+          $('.page:last').load('#{after}');
         </script>"
     end
     out
