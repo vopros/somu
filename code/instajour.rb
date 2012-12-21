@@ -7,6 +7,6 @@ class Instajour
     @description = description
   end
   def generate
-
+    
   end
 end
