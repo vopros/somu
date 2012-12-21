@@ -1,6 +1,6 @@
 # encoding: utf-8
-Dir["./#{$backend}/*.rb"].each { |file| require file }
 require './settings/init'
+Dir["./#{$backend}/*.rb"].each {|file| require file}
 require 'compass'
 require 'sinatra'
 require 'slim'
@@ -32,11 +32,6 @@ end
 
 get '/' do
   slim :index
-end
-
-get 'instajour/?' do
-  require './settings/instajour'
-  slim :instajour
 end
 
 # Slim & HTML

@@ -3,7 +3,7 @@ require 'open-uri'
 
 class Instajour
   attr_reader :title
-  def initialize token, title
+  def initialize token, title, author, description
     @endpoint = "https://api.instagram.com/v1/users/self/media/recent?count=60&access_token=#{token}"
     @title = title
   end
