@@ -1,13 +1,13 @@
 # encoding: utf-8
-require './settings/init'
+require './settings'
 Dir["./#{$backend}/*.rb"].each {|file| require file}
 require 'compass'
 require 'sinatra'
 require 'slim'
 
 configure do
-  Compass.add_project_configuration './settings/compass.rb'
-  #set :show_exceptions, false
+  Compass.add_project_configuration './compass.rb'
+  #st :show_exceptions, false
 end
 
 error { File.read $error }
@@ -18,7 +18,6 @@ set :port, $port
 get '/assets/*.css' do |css|
   style = "#{$styles}/#{css}.css"
   return File.read(style) if File.exists?(style)
-
   sass :"#{css}", Compass.sass_engine_options.merge(views: $styles)
 end
 
@@ -41,7 +40,6 @@ end
 # Slim & HTML
 get '/*/?' do |page|
   html = "#{$views}/#{page}.html"
-
   return File.read(html) if File.exists?(html)
   slim :"#{page}"
 end
