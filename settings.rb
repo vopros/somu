@@ -1,10 +1,10 @@
 # encoding: utf-8
 
 # Folders
-$backend = 'code'
+$code = 'code'
+$views = 'views'
 $styles = 'styles'
 $scripts = 'scripts'
-$views = 'views'
 $public = 'public'
 
 # Variables

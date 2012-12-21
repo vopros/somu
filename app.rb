@@ -1,6 +1,6 @@
 # encoding: utf-8
 require './settings'
-Dir["./#{$backend}/*.rb"].each {|file| require file}
+Dir["./#{$code}/*.rb"].each {|file| require file}
 require 'compass'
 require 'sinatra'
 require 'slim'
