@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 # Folders
-$code = 'code'
+#code = 'code' ←hardcoded
 $views = 'views'
 $styles = 'styles'
 $scripts = 'scripts'
@@ -17,4 +17,12 @@ $instajour = Instajour.new(
   'Инстажур Георгия',
   'Георгий Тимощенко',
   ''
+)
+
+$markup = Redcarpet::Markdown.new(
+  Redcarpet::Render::HTML.new(
+    hard_wrap: true),
+  autolink: true,
+  lax_spacing: true,
+  superscript: true
 )

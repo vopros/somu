@@ -1,9 +1,10 @@
 # encoding: utf-8
+Dir["./code/*.rb"].each {|file| require file}
 require './settings'
-Dir["./#{$code}/*.rb"].each {|file| require file}
 require 'compass'
 require 'sinatra'
 require 'slim'
+require 'redcarpet'
 
 configure do
   Compass.add_project_configuration './compass.rb'
@@ -29,7 +30,6 @@ end
 
 get '/instajour/:page' do
   $page = params[:page]
-  require './settings/instajour'
   $instajour.generate
 end
 
