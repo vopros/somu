@@ -67,30 +67,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "index.slim",
-			"settings":
-			{
-				"buffer_size": 1312,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/malfermu/Documents/malfermu/sass/screen.sass",
-			"settings":
-			{
-				"buffer_size": 1108,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/malfermu/Documents/malfermu/hate.html",
-			"settings":
-			{
-				"buffer_size": 815,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Slim (malfer.mu)",
 	"command_palette":
@@ -176,11 +152,22 @@
 	},
 	"file_history":
 	[
+		"/Users/malfermu/Documents/malfermu/compass.rb",
+		"/Users/malfermu/Documents/malfermu/Gemfile",
+		"/Users/malfermu/Documents/malfermu/views/index.slim",
+		"/Users/malfermu/Documents/malfermu/views/error.html",
+		"/Users/malfermu/Documents/malfermu/app.rb",
+		"/Users/malfermu/Documents/instajour/backend.php",
+		"/Users/malfermu/Documents/malfermu/code/instajour.rb",
+		"/Users/malfermu/Documents/malfermu/settings/instajour.rb",
+		"/Users/malfermu/Documents/malfermu/sass/screen.sass",
+		"/Users/malfermu/Desktop/malfermu/development/index.slim",
+		"/Users/malfermu/Documents/malfermu/hate.html",
+		"/Users/malfermu/Desktop/malfermu/development/malfermu.sublime-project",
 		"/Users/malfermu/Documents/malfermu/development/malfermu.sublime-project",
 		"/Users/malfermu/Dropbox/sublime/Packages/User/Preferences.sublime-settings",
 		"/Users/malfermu/Documents/malfermu/development/portfolio.slim",
 		"/Users/malfermu/Documents/malfermu/development/index.slim",
-		"/Users/malfermu/Documents/malfermu/sass/screen.sass",
 		"/Users/malfermu/Documents/malfermu/development/about.slim",
 		"/Users/malfermu/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/Users/malfermu/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
@@ -215,7 +202,6 @@
 		"/Users/malfermu/Documents/instajour/development/index.slim",
 		"/Users/malfermu/Documents/instajour/readme.md",
 		"/Users/malfermu/Documents/instajour/favicon.ico",
-		"/Users/malfermu/Documents/instajour/backend.php",
 		"/Users/malfermu/Documents/instajour/@key.php",
 		"/Users/malfermu/Documents/instajour/.gitignore",
 		"/Users/malfermu/Documents/instajour/development/css.sass",
@@ -293,17 +279,7 @@
 		"/Volumes/malfer.mu/www/all/index.php",
 		"/Volumes/malfer.mu/www/nolde/themes/kalokagathia/templates/slim/pages-later.tmpl.slim",
 		"/Volumes/malfer.mu/www/nolde/themes/kalokagathia/templates/slim/head.tmpl.slim",
-		"/Volumes/malfer.mu/www/nolde/themes/kalokagathia/templates/slim/footer.tmpl.slim",
-		"/Volumes/malfer.mu/www/nolde/themes/kalokagathia/templates/slim/header.tmpl.slim",
-		"/Volumes/malfer.mu/www/nolde/themes/kalokagathia/templates/header.tmpl.php",
-		"/Volumes/malfer.mu/www/nolde/themes/kalokagathia/templates/slim/header.tmpl.php",
-		"/Volumes/malfer.mu/www/nolde/themes/kalokagathia/templates/notes.tmpl.php",
-		"/Volumes/malfer.mu/www/nolde/themes/kalokagathia/templates/pages-earlier.tmpl.php",
-		"/Volumes/malfer.mu/www/nolde/themes/kalokagathia/templates/pages-later.tmpl.php",
-		"/Users/malfermu/Desktop/html.php",
-		"/Users/malfermu/Desktop/html.slim",
-		"/Users/malfermu/Library/Application Support/Sublime Text 2/Packages/User/Slim PHP.sublime-build",
-		"/Users/malfermu/Desktop/hinsicht/html.slim"
+		"/Volumes/malfer.mu/www/nolde/themes/kalokagathia/templates/slim/footer.tmpl.slim"
 	],
 	"find":
 	{
@@ -384,355 +360,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "index.slim",
-					"settings":
-					{
-						"buffer_size": 1312,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								649,
-								649
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": false,
-							"sublimelinter_mark_style": "outline",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/Users/malfermu/Documents/malfermu/sass/screen.sass",
-					"settings":
-					{
-						"buffer_size": 1108,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								16,
-								21
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": false,
-							"sublimelinter_mark_style": "outline",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/Users/malfermu/Documents/malfermu/hate.html",
-					"settings":
-					{
-						"buffer_size": 815,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								241,
-								252
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": false,
-							"sublimelinter_mark_style": "outline",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
