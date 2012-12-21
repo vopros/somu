@@ -24,24 +24,22 @@ class Instajour
     end
 
     photos.each do |photo|
-      out << "
-        <a
-          class='photo'
-          href='#{photo[:link]}'>
-          <img
-            src='#{photo[:image]}'
-            alt='#{photo[:caption]}'
-            title='#{photo[:caption]}'/>
-        </a>"
+      out << "<a
+      class='photo'
+      href='#{photo[:link]}'>
+      <img
+        src='#{photo[:image]}'
+        alt='#{photo[:caption]}'
+        title='#{photo[:caption]}'/>
+      </a>"
     end
 
     after = response['pagination']['next_max_id']
     unless after.nil?
-      out << "
-        <script>
-          $('body').append('<div class=page></div>');
-          $('.page:last').load('#{after}');
-        </script>"
+      out << "<script>
+      $('body').append('<div class=page></div>');
+      $('.page:last').load('#{after}');
+      </script>"
     end
     out
   end
