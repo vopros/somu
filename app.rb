@@ -7,7 +7,7 @@ require 'slim'
 
 configure do
   Compass.add_project_configuration './settings/compass.rb'
-  #set :show_exceptions, false #
+  #set :show_exceptions, false
 end
 
 error { File.read $error }
@@ -39,8 +39,7 @@ get '/' do
 end
 
 # Slim & HTML
-get '/*/?' do
-  page = params[:splat].first
+get '/*/?' do |page|
   html = "#{$views}/#{page}.html"
 
   return File.read(html) if File.exists?(html)
