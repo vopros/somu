@@ -28,8 +28,8 @@ get '/assets/*.js' do |js|
 end
 
 get '/instajour/:page' do
-  $page = params[:page]
-  $instajour.generate
+  page = params[:page]
+  $instajour.generate page
 end
 
 get '/' do

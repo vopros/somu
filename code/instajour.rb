@@ -9,10 +9,10 @@ class Instajour
     @author = author
     @description = description
   end
-  def generate
-    @endpoint += "&max_id=#{$page}" unless $page.nil?
-    response = JSON.parse open(@endpoint) {|f| f.read }
-    photos = []; out = ''
+  def generate page = ''
+    @endpoint += "&max_id=#{page}" unless page.nil?
+    response = JSON.parse open(@endpoint) {|f| f.read } 
+    photos, out = [], ''
 
     response['data'].each do |item|
       caption = item['caption']['text'] unless item['caption'].nil?
