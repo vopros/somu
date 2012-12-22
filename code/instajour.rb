@@ -41,6 +41,5 @@ class Instajour
       $('.page:last').load('#{after}');
       </script>"
     end
-    out
-  end
+  out; end
 end

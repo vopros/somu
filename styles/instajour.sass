@@ -1,4 +1,7 @@
-﻿*
+﻿@import compass/css3/transition
+@import compass/css3/opacity
+
+*
   margin: 0
   padding: 0
   background-color: black
@@ -10,15 +13,11 @@ body
 $duration: 0.2s
 $opacity: .8
 a img
-  -webkit-transition: opacity $duration
-  -o-transition: opacity $duration
-  -moz-transition: opacity $duration
-  transition: opacity $duration
+  +transition(opacity $duration)
   float: left
   width: 25%
   &:hover
-    -moz-opacity: $opacity
-    opacity: $opacity
+    +opacity($opacity)
 
 =respond($number: 1, $size: 400px)
   @media (max-width: $size * $number)
