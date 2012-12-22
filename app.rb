@@ -32,6 +32,17 @@ get '/instajour/:page' do
   $instajour.generate page
 end
 
+# Fizzy Markdown
+get '/blog/?' do
+  $post = '*'
+  slim :blog
+end
+
+get '/blog/*/?' do |post|
+  $post = "#{post}.*"
+  slim :blog
+end
+
 get '/' do
   slim :index
 end
