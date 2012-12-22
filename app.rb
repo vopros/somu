@@ -21,7 +21,7 @@ get '/assets/*.css' do |css|
   sass :"#{css}", Compass.sass_engine_options.merge(views: $styles)
 end
 
-# JS & CoffeeScript
+# CoffeeScript & JS
 get '/assets/*.js' do |js|
   script = "#{$scripts}/#{js}.js"
   File.read script

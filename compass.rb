@@ -14,5 +14,5 @@ http_path = "/"
 http_images_path = ""
 http_stylesheets_path = "assets/"
 
-output_style = :compressed # :expanded or :nested or :compact or :compressed
+output_style = :compressed
 preferred_syntax = :sass
