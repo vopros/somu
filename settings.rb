@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 # Folders
-#code = 'code' ←hardcoded
+Dir["./code/*.rb"].each {|file| require file}
 $views = 'views'
 $styles = 'styles'
 $scripts = 'scripts'

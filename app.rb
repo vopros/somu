@@ -1,10 +1,9 @@
 # encoding: utf-8
-Dir["./code/*.rb"].each {|file| require file}
+require 'redcarpet'
 require './settings'
 require 'compass'
 require 'sinatra'
 require 'slim'
-require 'redcarpet'
 
 configure do
   Compass.add_project_configuration './compass.rb'
