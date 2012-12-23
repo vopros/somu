@@ -3,4 +3,6 @@
 
 Сделал тему для Тумблера, добротную:
 
-[![](/junk/blank.png)](http://malfermu.tumblr.com)
+[!(/junk/blank.png)](http://malfermu.tumblr.com)
+
+Исключительно для картинок. [Плаг’н’плей](http://gist.github.com/4285295).

@@ -8,7 +8,9 @@ class Fizzy
   end
 
   def render post
-    @render.render File.read post
+    md = File.read post
+    md.gsub!(/(?<=!)\(/) {|n| "[]#{n}" }  # Better image syntax
+    @render.render md
   end
 
   def wrap html
