@@ -1,3 +1,4 @@
+require 'date'
 class Fizzy
   attr_reader :title, :author, :description, :dir
   def initialize posts, dir, render, title, author = '', description = ''
@@ -20,14 +21,21 @@ class Fizzy
     end
   end
 
+  def birth file
+    `stat -f %B #{file}`.to_i
+  end
+
   def show id
     out = ''
-    Dir["#{@posts}/#{id}"].each do |post|
+    Dir["#{@posts}/#{id}"].sort_by {|p| birth(p) * -1}.each do |post|
       html = wrap render post
       if id == '*'
         fetch = "/#{@dir}/" + post[/(?<=\/)[^\/\.]+(?=\.)/] + '/'
         html.gsub!(@h1) {|h| "<a href='#{fetch}'>#{h}</a>"}
-      end; out << html
+      end
+      date = (Time.at birth post).to_date.strftime('%d.%m')
+      html.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{date}</div>"}
+      out << html
     end; out
   end
 end
