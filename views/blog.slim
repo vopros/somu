@@ -7,6 +7,11 @@ html
     meta name='author' content='#{$fizzy.author}'
     meta name='description' content='#{$fizzy.description}'
     link rel='shortcut icon' href='/favicon.ico'
-    link rel='stylesheet' href='/assets/main.css'
+    link rel='stylesheet' href='/assets/fizzy.css'
+    script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'
   body
-    .page == $fizzy.show ($post || '*')
+    - if @id == '*'
+      header Блог
+    - else
+      header: a href='/blog/' Блог
+    .page == $fizzy.show @id

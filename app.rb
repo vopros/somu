@@ -34,12 +34,12 @@ end
 
 # Fizzy Markdown
 get '/blog/?' do
-  $post = '*'
+  @id = '*'
   slim :blog
 end
 
 get '/blog/*/?' do |post|
-  $post = "#{post}.*"
+  @id = "#{post}.*"
   slim :blog
 end
 
