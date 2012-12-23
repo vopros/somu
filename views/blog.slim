@@ -1,7 +1,10 @@
 doctype html
 html
   head
-    title = $fizzy.title
+    - if @id == '*'
+      title = $fizzy.title
+    - else
+      title = $fizzy.header @id
     meta http-equiv='Content-Type' content='text/html; charset=utf-8'
     meta name='viewport' content='width=device-width, initial-scale=1.0'
     meta name='author' content='#{$fizzy.author}'
@@ -11,7 +14,7 @@ html
     script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'
   body
     - if @id == '*'
-      header Блог
+      header = $fizzy.title
     - else
-      header: a href='/blog/' Блог
+      header: a href='/#{$fizzy.dir}/' = $fizzy.title
     .page == $fizzy.show @id
