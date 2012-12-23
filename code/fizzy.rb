@@ -5,6 +5,7 @@ class Fizzy
     @posts, @dir, @render = posts, dir, render
     @title, @author, @description = title, author, description
     @h1 = /(?<=<h1>).+(?=<\/h1>)/ #=> <h1>#{var}</h1>
+    @per = 2
   end
 
   def render post
@@ -27,9 +28,14 @@ class Fizzy
     `stat -f %B #{file}`.to_i
   end
 
-  def show id
-    out = ''
-    Dir["#{@posts}/#{id}"].sort_by { |p| -birth(p) }.each do |post|
+  def check page
+    no = page * @per
+    Dir["#{@posts}/*"][no].nil?
+  end
+
+  def show id, page = 1
+    out = ''; no = page * @per
+    Dir["#{@posts}/#{id}"].sort_by {|p| -birth(p)}[(no - @per)...no].each do |post|
       html = wrap render post
       if id == '*'
         fetch = "/#{@dir}/" + post[/(?<=\/)[^\/\.]+(?=\.)/] + '/'

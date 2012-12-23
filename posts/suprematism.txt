@@ -8,15 +8,12 @@
 Немного невалидный. [Тут же оцифровал](/all/square/).
 На [Слиме](http://slim-lang.com) он выглядел бы ещё минималистичнее:
 
-```
-html
-  head
-    sass:
-      #square
-        width: 100px
-        height: 100px
-        background: #000
-  body
-    #square &nbsp;
-```
-http://malfer.mu 
+	html
+	  head
+	    sass:
+	      #square
+	        width: 100px
+	        height: 100px
+	        background: #000
+	  body
+	    #square &nbsp;

@@ -35,11 +35,19 @@ end
 # Fizzy Markdown
 get '/blog/?' do
   @id = '*'
+  @page = 1
+  slim :blog
+end
+
+get '/blog/~*/?' do |page|
+  @id = "*"
+  @page = page.to_i
   slim :blog
 end
 
 get '/blog/*/?' do |post|
   @id = "#{post}.*"
+  @page = 1
   slim :blog
 end
 

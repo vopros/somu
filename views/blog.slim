@@ -13,9 +13,16 @@ html
     link rel='stylesheet' href='/assets/main.css'
     link rel='stylesheet' href='/assets/fizzy.css'
   body
-    - if @id == '*'
+    - if @id == '*' and @page == 1
       .header = $fizzy.title
     - else
       .header: a href='/#{$fizzy.dir}/' = $fizzy.title
-    .page == $fizzy.show @id
+
+    - unless @page == 1
+      .nav.prev: a href='/#{$fizzy.dir}/~#{@page - 1}' = "##{@page - 1}"
+
+    .page == $fizzy.show @id, @page
+
+    - unless $fizzy.check @page
+      .nav.next: a href='/#{$fizzy.dir}/~#{@page + 1}' = "##{@page + 1}"
     br
