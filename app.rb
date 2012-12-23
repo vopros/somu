@@ -39,6 +39,8 @@ get '/blog/?' do
   slim :blog
 end
 
+get('/nolde/?') { redirect '/blog/' }
+get('/blog/~1/?') { redirect '/blog/' }
 get '/blog/~*/?' do |page|
   @id = "*"
   @page = page.to_i

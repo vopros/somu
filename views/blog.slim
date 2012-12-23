@@ -23,6 +23,6 @@ html
 
     .page == $fizzy.show @id, @page
 
-    - unless $fizzy.check @page
+    - if !($fizzy.check @page) && @id == '*'
       .nav.next: a href='/#{$fizzy.dir}/~#{@page + 1}' = "##{@page + 1}"
     br

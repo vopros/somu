@@ -35,7 +35,7 @@ class Fizzy
 
   def show id, page = 1
     out = ''; no = page * @per
-    all = Dir["#{@posts}/#{id}"].sort_by {|p| -birth(p)}[(no - @per)...no]
+    all = Dir["#{@posts}/#{id}"].sort_by {|p| -birth(p)}[no - @per...no]
     raise "No posts found: #{id}" if all.empty?
 
     all.each do |post|
