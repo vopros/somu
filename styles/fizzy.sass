@@ -1,0 +1,35 @@
+@function main($multi: 1, $base: 15px)
+  @return $base * $multi
+
+body
+  margin-top: 0
+
+p
+  text-indent: 0
+
+h1 a
+  color: black
+  &:hover
+    color: lighten(black, 33%)
+
+.time
+  position: absolute
+  margin-left: -50px
+  font-style: italic
+  color: gray
+
+body
+  font-size: main(1)
+  line-height: main(1.5)
+
+.header
+  font-size: main(2)
+  line-height: main(6)
+
+.post 
+  margin-bottom: main(1.5)
+
+pre, code
+  font:
+    family: 'PT Mono'
+    size: main(0.85)

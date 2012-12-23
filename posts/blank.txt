@@ -3,4 +3,4 @@
 
 Сделал тему для Тумблера, добротную:
 
-![](/junk/blank.png)
+[![](/junk/blank.png)](http://malfermu.tumblr.com)

@@ -27,7 +27,7 @@ class Fizzy
 
   def show id
     out = ''
-    Dir["#{@posts}/#{id}"].sort_by {|p| birth(p) * -1}.each do |post|
+    Dir["#{@posts}/#{id}"].sort_by { |p| -birth(p) }.each do |post|
       html = wrap render post
       if id == '*'
         fetch = "/#{@dir}/" + post[/(?<=\/)[^\/\.]+(?=\.)/] + '/'

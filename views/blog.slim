@@ -10,11 +10,12 @@ html
     meta name='author' content='#{$fizzy.author}'
     meta name='description' content='#{$fizzy.description}'
     link rel='shortcut icon' href='/favicon.ico'
+    link rel='stylesheet' href='/assets/main.css'
     link rel='stylesheet' href='/assets/fizzy.css'
-    script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'
   body
     - if @id == '*'
-      header = $fizzy.title
+      .header = $fizzy.title
     - else
-      header: a href='/#{$fizzy.dir}/' = $fizzy.title
+      .header: a href='/#{$fizzy.dir}/' = $fizzy.title
     .page == $fizzy.show @id
+    br
