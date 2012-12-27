@@ -10,7 +10,10 @@ class Fizzy
 
   def render post
     md = File.read post
-    md.gsub!(/(?<=!)\(/) {|n| "[]#{n}" }  # Better image syntax
+    md.gsub!(/!\[(.+)\]\((.+)\)/) { "![#{$1}](#{$2} '#{$1}')" } # Better <img title>
+    md.gsub!(/!\((.+)\)/) { "![](#{$1})" }  # Better image syntax
+    md.gsub!(/^  /) {|n| "    " }  # 2 spaces instead of 4
+    md.gsub!(/@\[(.+)\]\((.+)\)/) { "<a href='#{$2}' class='jouele'>#{$1}</a>" }
     @render.render md
   end
 

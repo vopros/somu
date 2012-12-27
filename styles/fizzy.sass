@@ -4,8 +4,13 @@
 body
   margin-top: 0
 
-p
+img
+  margin-bottom: 0
+  margin-top: 0
+
+p, pre
   text-indent: 0
+  margin-bottom: main(.75)
 
 h1 a
   color: black
@@ -45,7 +50,9 @@ pre, code
 .next
   margin-top: main(-3)
 
-.post > p > img:last-child
+.post > p > img:last-child,
+.post > p:last-child,
+.post > pre:last-child
   margin-bottom: 0
 
 em
