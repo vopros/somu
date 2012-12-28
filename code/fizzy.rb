@@ -1,20 +1,13 @@
 require 'date'
+require 'town'
+
 class Fizzy
   attr_reader :title, :author, :description, :dir
-  def initialize posts, dir, render, title, author = '', description = ''
-    @posts, @dir, @render = posts, dir, render
+  def initialize posts, dir, title, author = '', description = ''
+    @posts, @dir = posts, dir
     @title, @author, @description = title, author, description
     @h1 = /(?<=<h1>).+(?=<\/h1>)/ #=> <h1>#{var}</h1>
     @per = 10
-  end
-
-  def render post
-    md = File.read post
-    md.gsub!(/!\[(.+)\]\((.+)\)/) { "![#{$1}](#{$2} '#{$1}')" } # Better <img title>
-    md.gsub!(/!\((.+)\)/) { "![](#{$1})" }  # Better image syntax
-    md.gsub!(/^  /) {|n| "    " }  # 2 spaces instead of 4
-    md.gsub!(/@\[(.+)\]\((.+)\)/) { "<p><a href='#{$2}' class='jouele'>#{$1}</a></p>" }
-    @render.render md
   end
 
   def wrap html
@@ -23,7 +16,7 @@ class Fizzy
 
   def header id
     Dir["#{@posts}/#{id}"].each do |post|
-      return render(post)[@h1]
+      return (File.read post).townify[@h1]
     end
   end
 
@@ -42,7 +35,7 @@ class Fizzy
     raise "No posts found: #{id}" if all.empty?
 
     all.each do |post|
-      html = wrap render post
+      html = wrap (File.read post).townify
       if id == '*'
         fetch = "/#{@dir}/" + post[/(?<=\/)[^\/\.]+(?=\.)/] + '/'
         html.gsub!(@h1) {|h| "<a href='#{fetch}'>#{h}</a>"}

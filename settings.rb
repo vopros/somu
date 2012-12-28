@@ -19,18 +19,9 @@ $instajour = Instajour.new(
   ''
 )
 
-markup = Redcarpet::Markdown.new(
-  Redcarpet::Render::HTML.new(
-    hard_wrap: true),
-  autolink: true,
-  lax_spacing: true,
-  superscript: true
-)
-
 $fizzy = Fizzy.new(
   'posts',
   'blog',
-  markup,
   'Блог Георгия Тимощенко',
   'Георгий Тимощенко',
   ''
