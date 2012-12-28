@@ -16,7 +16,7 @@ class Fizzy
 
   def header id
     Dir["#{@posts}/#{id}"].each do |post|
-      return (File.read post).townify[@h1]
+      return post.dress[@h1]
     end
   end
 
@@ -35,7 +35,7 @@ class Fizzy
     raise "No posts found: #{id}" if all.empty?
 
     all.each do |post|
-      html = wrap (File.read post).townify
+      html = wrap post.dress
       if id == '*'
         fetch = "/#{@dir}/" + post[/(?<=\/)[^\/\.]+(?=\.)/] + '/'
         html.gsub!(@h1) {|h| "<a href='#{fetch}'>#{h}</a>"}
