@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 13" width="64" height="13">
 	<defs>
 		<linearGradient id="shadow-left" x1="0" y1="0" x2="0" y2="100%" gradientTransform="rotate(-75)">
-			<stop stop-color="#0020FF" offset="0"/>
-			<stop stop-color="#1ABEF1" stop-opacity="0" offset="40%"/>
+			<stop stop-color="#b23f02" offset="0"/>
+			<stop stop-color="#EB3C0C" stop-opacity="0" offset="40%"/>
 		</linearGradient>
 		<linearGradient id="shadow-top" x1="0" y1="0" x2="0" y2="100%" gradientTransform="rotate(15)">
-			<stop stop-color="#0020FF" offset="0"/>
-			<stop stop-color="#1ABEF1" stop-opacity="0" offset="40%"/>
+			<stop stop-color="#b23f02" offset="0"/>
+			<stop stop-color="#EB3C0C" stop-opacity="0" offset="40%"/>
 		</linearGradient>
 	</defs>
 	<g id="unavailable">
@@ -25,7 +25,7 @@
 		<polygon points="36 3 44 7.5 36 12" fill="#ffffff" opacity="0.5"/>
 		<polygon points="36 3 44 7.5 36 12" fill="#ffffff" opacity="0.5"/>
 		<polygon points="36 3 44 7.5 36 12" fill="#ffffff" opacity="0.5"/>
-		<polygon points="36 2 44 6.5 36 11" fill="#1ABEF1"/>
+		<polygon points="36 2 44 6.5 36 11" fill="#EB3C0C"/>
 		<polygon points="36 2 44 6.5 36 11" fill="url(#shadow-left)"/>
 		<polygon points="36 2 44 6.5 36 11" fill="url(#shadow-top)"/>
 	</g>
