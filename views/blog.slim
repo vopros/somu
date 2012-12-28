@@ -12,22 +12,21 @@ html
     link rel='shortcut icon' href='/favicon.ico'
     link rel='stylesheet' href='/assets/main.css'
     link rel='stylesheet' href='/assets/fizzy.css'
-    link rel='stylesheet' href='/jouele/jouele.css'
     script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'
     script src='/main.js'
+    / Jouele
+    link id='jouele-swf-object' href='/jouele/jplayer.swf'
     script src='/jouele/jplayer.js'
+    link rel='stylesheet' href='/jouele/jouele.css'
     script src='/jouele/jouele.js'
   body
     - if @id == '*' and @page == 1
       .header = $fizzy.title
     - else
       .header: a href='/#{$fizzy.dir}/' = $fizzy.title
-
     - unless @page == 1
       .nav.prev: a href='/#{$fizzy.dir}/~#{@page - 1}' = "##{@page - 1}"
-
     .page == $fizzy.show @id, @page
-
     - if !($fizzy.check @page) && @id == '*'
       .nav.next: a href='/#{$fizzy.dir}/~#{@page + 1}' = "##{@page + 1}"
     br
