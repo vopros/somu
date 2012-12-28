@@ -1,7 +1,11 @@
 .jouele {
   width: 100%;
   position: relative;
-  font-family: "Helvetica", "Arial", sans-serif;
+  /*
+    margin-left: -50px;
+    width: 450px;
+    font-family: "Helvetica", "Arial", sans-serif;
+  */
   font-size: 13px;
 }
 
@@ -108,7 +112,7 @@
 .jouele-play-control {
   position: absolute;
   left: 0;
-  top: -1px;
+  top: 0;
   width: 16px;
   height: 16px;
   margin-left: -3px;
@@ -137,7 +141,7 @@
 .jouele-download {
   position: absolute;
   right: 0;
-  top: -1px;
+  top: 1px;
   width: 16px;
   height: 16px;
   margin-left: 8px;
@@ -166,12 +170,12 @@
 
 .jouele-total-time {
   display: inline;
-  margin-right: 16px;
+  margin-right: 14px;
 }
 
 .jouele-name {
-  margin: 0 16px;
-  min-height: 16px;
+  margin: 0 14px;
+  min-height: 10px;
   text-align: left;
 }
 
@@ -198,15 +202,15 @@
   opacity: 1;
 }
 
-* .jouele-unavailable, .jouele-skin-dark .jouele-unavailable {
+* .jouele-unavailable {
   background-position: 0px;
 }
-* .jouele-play, .jouele-skin-dark .jouele-play {
+* .jouele-play {
   background-position: -16px;
 }
-* .jouele-pause, .jouele-skin-dark .jouele-pause {
+* .jouele-pause {
   background-position: -32px;
 }
-* .jouele-download, .jouele-skin-dark .jouele-download {
+* .jouele-download {
   background-position: -48px;
 }
