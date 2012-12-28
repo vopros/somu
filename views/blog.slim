@@ -21,7 +21,7 @@ html
     - if @id == '*' and @page == 1
       .header = $fizzy.name
     - else
-      .header: a href='/#{$fizzy.url}/' = $fizzy.name
+      .header: a href='#{$fizzy.url}' = $fizzy.name
     / Previous page
     - unless @page == 1
       .nav.prev: a href='/#{$fizzy.url}/~#{@page.pred}' = "№#{@page.pred}"

@@ -4,7 +4,7 @@ require 'town'
 
 class Fizzy
   attr_reader :name, :author, :description, :url
-  def initialize name, author, description, per = 10, url = 'blog', posts = 'posts', dump = '.timestamps'
+  def initialize name, author, description, per = 10, url = '/blog/', posts = 'posts', dump = '.timestamps'
     @posts, @url, @per, @dump = posts, url, per, dump # Kinda obvious, huh?
     @name, @author, @description = name, author, description
     @header = /(?<=<h1>).+(?=<\/h1>)/ #=> <h1>(match)</h1>
@@ -42,7 +42,7 @@ class Fizzy
       html = "<div class='post'>#{post.dress}</div>"
       if id == '*'
         basename = post[/(?<=\/)[^\/\.]+(?=\.)/]
-        direct = "/#{@url}/#{basename}/"
+        direct = "#{@url}#{basename}/"
         html.gsub!(@header) {|h| "<a href='#{direct}'>#{h}</a>"}
       end # Date: convert & put it after H1
       date = (Time.at @time[post]).strftime('%d.%m')
