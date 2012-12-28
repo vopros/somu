@@ -2,18 +2,16 @@ require 'date'
 require 'town'
 
 class Fizzy
-  attr_reader :title, :author, :description, :url
-  def initialize title, author, description, per = 10, posts = 'posts', url = 'blog'
-    @posts, @url, @per = posts, url, per
-    @title, @author, @description = title, author, description
-    @h1 = /(?<=<h1>).+(?=<\/h1>)/ #=> <h1>#{var}</h1>
+  attr_reader :name, :author, :description, :url
+  def initialize name, author, description, per = 10, posts = 'posts', url = 'blog'
+    @posts, @url, @per = posts, url, per # Kinda obvious, huh?
+    @name, @author, @description = name, author, description
+    @h1 = /(?<=<h1>).+(?=<\/h1>)/ #=> <h1>(match)</h1>
   end
 
-  def wrap html
-    "<div class='post'>#{html}</div>"
-  end
-
-  def header id
+  def title id
+    # JS does this; for search engines only
+    return @name if id == '*'
     Dir["#{@posts}/#{id}"].each do |post|
       return post.dress[@h1]
     end
@@ -21,24 +19,30 @@ class Fizzy
 
   def birth file
     `stat -f %B #{file}`.to_i
+    # %B timestamp (BSD only?)
   end
 
   def check page
-    no = page * @per
-    Dir["#{@posts}/*"][no].nil?
+    edge = page * @per
+    not Dir["#{@posts}/*"][edge].nil?
   end
 
   def show id, page = 1
-    out = ''; no = page * @per
-    all = Dir["#{@posts}/#{id}"].sort_by {|p| -birth(p)}[no - @per...no]
-    raise "No posts found: #{id}" if all.empty?
+    out = '';
+    those = page.pred * @per...page * @per
+    all = Dir["#{@posts}/#{id}"]
+      .sort_by {|file| -birth(file) }[those]
+      # ↑ Sorts by inversed birth timestamp and fetches
 
+    raise "No posts found: #{id}" if all.empty?
     all.each do |post|
-      html = wrap post.dress
+
+      html = "<div class='post'>#{post.dress}</div>"
       if id == '*'
         fetch = "/#{@url}/" + post[/(?<=\/)[^\/\.]+(?=\.)/] + '/'
         html.gsub!(@h1) {|h| "<a href='#{fetch}'>#{h}</a>"}
       end
+
       date = (Time.at birth post).to_date.strftime('%d.%m')
       html.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{date}</div>"} # Date
       out << html

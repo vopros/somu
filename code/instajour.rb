@@ -8,7 +8,7 @@ class Instajour
     @title, @author, @description = title, author, description
   end
   def generate page = ''
-    @endpoint += "&max_id=#{page}" unless page.nil?
+    @endpoint += "&max_id=#{page}" unless page.nil? # if specified
     response = JSON.parse open(@endpoint) {|f| f.read } 
     photos, out = [], ''
 
@@ -32,6 +32,7 @@ class Instajour
       </a>"
     end
 
+    # Load next if exists via JS
     after = response['pagination']['next_max_id']
     unless after.nil?
       out << "<script>
