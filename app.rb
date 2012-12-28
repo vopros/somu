@@ -32,7 +32,6 @@ get '/instajour/:page' do
 end
 
 # Fizzy
-
 %w[/nolde/? /blog/~1/?].each do |p|
   get(p) {redirect '/blog/'}
 end
