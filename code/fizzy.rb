@@ -2,12 +2,11 @@ require 'date'
 require 'town'
 
 class Fizzy
-  attr_reader :title, :author, :description, :dir
-  def initialize posts, dir, title, author = '', description = ''
-    @posts, @dir = posts, dir
+  attr_reader :title, :author, :description, :url
+  def initialize title, author, description, per = 10, posts = 'posts', url = 'blog'
+    @posts, @url, @per = posts, url, per
     @title, @author, @description = title, author, description
     @h1 = /(?<=<h1>).+(?=<\/h1>)/ #=> <h1>#{var}</h1>
-    @per = 10
   end
 
   def wrap html
@@ -37,7 +36,7 @@ class Fizzy
     all.each do |post|
       html = wrap post.dress
       if id == '*'
-        fetch = "/#{@dir}/" + post[/(?<=\/)[^\/\.]+(?=\.)/] + '/'
+        fetch = "/#{@url}/" + post[/(?<=\/)[^\/\.]+(?=\.)/] + '/'
         html.gsub!(@h1) {|h| "<a href='#{fetch}'>#{h}</a>"}
       end
       date = (Time.at birth post).to_date.strftime('%d.%m')

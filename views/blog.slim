@@ -24,13 +24,13 @@ html
     - if @id == '*' and @page == 1
       .header = $fizzy.title
     - else
-      .header: a href='/#{$fizzy.dir}/' = $fizzy.title
+      .header: a href='/#{$fizzy.url}/' = $fizzy.title
     / Previous page
     - unless @page == 1
-      .nav.prev: a href='/#{$fizzy.dir}/~#{@page - 1}' = "##{@page - 1}"
+      .nav.prev: a href='/#{$fizzy.url}/~#{@page - 1}' = "##{@page - 1}"
     / Content
     .page == $fizzy.show @id, @page
     / Next page
     - if !($fizzy.check @page) && @id == '*'
-      .nav.next: a href='/#{$fizzy.dir}/~#{@page + 1}' = "##{@page + 1}"
+      .nav.next: a href='/#{$fizzy.url}/~#{@page + 1}' = "##{@page + 1}"
     br
