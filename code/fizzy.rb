@@ -7,7 +7,6 @@ class Fizzy
   def initialize name, author, description, per = 10, url = 'blog', posts = 'posts', dump = '.timestamps'
     @posts, @url, @per, @dump = posts, url, per, dump # Kinda obvious, huh?
     @name, @author, @description = name, author, description
-
     @header = /(?<=<h1>).+(?=<\/h1>)/ #=> <h1>(match)</h1>
     @time = (Psych.load_file @dump if File.exists? @dump) || {}
   end
@@ -45,9 +44,9 @@ class Fizzy
         basename = post[/(?<=\/)[^\/\.]+(?=\.)/]
         direct = "/#{@url}/#{basename}/"
         html.gsub!(@header) {|h| "<a href='#{direct}'>#{h}</a>"}
-      end
-      date = Time.at(@time[post]).to_date.strftime('%d.%m')
-      html.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{date}</div>"} # Date
+      end # Date: convert & put it after H1
+      date = (Time.at @time[post]).strftime('%d.%m')
+      html.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{date}</div>"}
       out << html
     end; out
   end
