@@ -7,10 +7,9 @@ class Fizzy
   def initialize name, author, description, per = 10, url = 'blog', posts = 'posts', dump = '.timestamps'
     @posts, @url, @per, @dump = posts, url, per, dump # Kinda obvious, huh?
     @name, @author, @description = name, author, description
-    @header = /(?<=<h1>).+(?=<\/h1>)/ #=> <h1>(match)</h1>
 
+    @header = /(?<=<h1>).+(?=<\/h1>)/ #=> <h1>(match)</h1>
     @time = (Psych.load_file @dump if File.exists? @dump) || {}
-    File.write @dump, '' unless File.exists? @dump
   end
 
   def title id
@@ -36,20 +35,17 @@ class Fizzy
   end
 
   def show id, page = 1
-    out = '';
-    those = page.pred * @per...page * @per
     all = sort Dir["#{@posts}/#{id}"]
-
+    those = page.pred * @per...page * @per
     raise "No posts found: #{id}" if all.empty?
-    all[those].each do |post|
-      html = "<div class='post'>#{post.dress}</div>"
 
+    out = ''; all[those].each do |post|
+      html = "<div class='post'>#{post.dress}</div>"
       if id == '*'
         basename = post[/(?<=\/)[^\/\.]+(?=\.)/]
-        fetch = "/#{@url}/#{basename}/"
-        html.gsub!(@header) {|h| "<a href='#{fetch}'>#{h}</a>"}
+        direct = "/#{@url}/#{basename}/"
+        html.gsub!(@header) {|h| "<a href='#{direct}'>#{h}</a>"}
       end
-
       date = Time.at(@time[post]).to_date.strftime('%d.%m')
       html.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{date}</div>"} # Date
       out << html
