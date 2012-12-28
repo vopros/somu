@@ -4,11 +4,13 @@ require 'town'
 
 class Fizzy
   attr_reader :name, :author, :description, :url
-  def initialize name, author, description, per = 10, posts = 'posts', url = 'blog'
-    @posts, @url, @per = posts, url, per # Kinda obvious, huh?
+  def initialize name, author, description, per = 10, url = 'blog', posts = 'posts', dump = '.timestamps'
+    @posts, @url, @per, @dump = posts, url, per, dump # Kinda obvious, huh?
     @name, @author, @description = name, author, description
     @header = /(?<=<h1>).+(?=<\/h1>)/ #=> <h1>(match)</h1>
-    @time = Psych.load_file('.fizzy')
+
+    @time = (Psych.load_file @dump if File.exists? @dump) || {}
+    File.write @dump, '' unless File.exists? @dump
   end
 
   def title id
@@ -23,7 +25,7 @@ class Fizzy
     posts.sort_by do |file|
       if @time[file].nil?
         @time[file] = Time.now.to_i 
-        File.open('.fizzy', 'w') {|f| f.write Psych.dump(@time) }
+        File.write @dump, Psych.dump(@time)
       end; -@time[file]
     end
   end
@@ -36,11 +38,10 @@ class Fizzy
   def show id, page = 1
     out = '';
     those = page.pred * @per...page * @per
-    all = sort(Dir["#{@posts}/#{id}"])[those]
-      # ↑ Sorts by inversed birth timestamp and fetches
+    all = sort Dir["#{@posts}/#{id}"]
 
     raise "No posts found: #{id}" if all.empty?
-    all.each do |post|
+    all[those].each do |post|
       html = "<div class='post'>#{post.dress}</div>"
 
       if id == '*'
