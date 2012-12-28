@@ -55,6 +55,7 @@
   background: -webkit-linear-gradient(#a9a89a 0%, #dbdacf 50%, #f2f0e5 100%);
   background: -moz-linear-gradient(#a9a89a 0%, #dbdacf 50%, #f2f0e5 100%);
   background: -o-linear-gradient(#a9a89a 0%, #dbdacf 50%, #f2f0e5 100%);
+  background: -ms-linear-gradient(#a9a89a 0%, #dbdacf 50%, #f2f0e5 100%);
   background: linear-gradient(#a9a89a 0%, #dbdacf 50%, #f2f0e5 100%);
 }
 
@@ -69,6 +70,7 @@
   background: -webkit-linear-gradient(#b23f02 0%, #eb3c0c 50%, #d3360b 100%);
   background: -moz-linear-gradient(#b23f02 0%, #eb3c0c 50%, #d3360b 100%);
   background: -o-linear-gradient(#b23f02 0%, #eb3c0c 50%, #d3360b 100%);
+  background: -ms-linear-gradient(#b23f02 0%, #eb3c0c 50%, #d3360b 100%);
   background: linear-gradient(#b23f02 0%, #eb3c0c 50%, #d3360b 100%);
 }
 
@@ -85,6 +87,7 @@
   background: -webkit-linear-gradient(bottom, #e3e3e3 0%, #fefefd 100%);
   background: -moz-linear-gradient(bottom, #e3e3e3 0%, #fefefd 100%);
   background: -o-linear-gradient(bottom, #e3e3e3 0%, #fefefd 100%);
+  background: -ms-linear-gradient(bottom, #e3e3e3 0%, #fefefd 100%);
   background: linear-gradient(bottom, #e3e3e3 0%, #fefefd 100%);
   cursor: pointer;
   cursor: hand;
@@ -107,7 +110,7 @@
 .jouele-play-control {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 2px;
   width: 16px;
   height: 16px;
   margin-left: -3px;
@@ -136,7 +139,7 @@
 .jouele-download {
   position: absolute;
   right: 0;
-  top: 1px;
+  top: 3px;
   width: 16px;
   height: 16px;
   margin-left: 8px;
@@ -172,24 +175,32 @@
   margin: 0 14px;
   min-height: 10px;
   text-align: left;
+  font-weight: bold;
 }
 
 .jouele-option-progress-when-playing .jouele-progress-area {
   margin-top: -16px;
   top: 0;
   opacity: 0;
+
   -webkit-transition-property: opacity, margin-top;
+  -ms-transition-property: opacity, margin-top;
   -moz-transition-property: opacity, margin-top;
   -o-transition-property: opacity, margin-top;
   transition-property: opacity, margin-top;
+
   -webkit-transition-duration: 0.33s, 0.33s;
+  -ms-transition-duration: 0.33s, 0.33s;
   -moz-transition-duration: 0.33s, 0.33s;
   -o-transition-duration: 0.33s, 0.33s;
   transition-duration: 0.33s, 0.33s;
+
   -webkit-transition-timing-function: ease-out, ease-out;
+  -ms-transition-timing-function: ease-out, ease-out;
   -moz-transition-timing-function: ease-out, ease-out;
   -o-transition-timing-function: ease-out, ease-out;
   transition-timing-function: ease-out, ease-out;
+
 }
 
 .jouele-status-playing .jouele-progress-area {
@@ -197,15 +208,7 @@
   opacity: 1;
 }
 
-* .jouele-unavailable {
-  background-position: 0px;
-}
-* .jouele-play {
-  background-position: -16px;
-}
-* .jouele-pause {
-  background-position: -32px;
-}
-* .jouele-download {
-  background-position: -48px;
-}
+* .jouele-unavailable { background-position: 0 0; }
+* .jouele-play { background-position: -16px 0; }
+* .jouele-pause { background-position: -32px 0; }
+* .jouele-download { background-position: -48px 0; }
