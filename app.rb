@@ -6,7 +6,7 @@ require 'slim'
 
 configure do
   Compass.add_project_configuration './compass.rb'
-  #set :show_exceptions, false
+  set :show_exceptions, false
 end
 
 error { File.read $error }
