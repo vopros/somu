@@ -5,64 +5,71 @@
 $red: #eb3c0c
 
 @function main($multi: 1, $base: 15px)
-	@return $base * $multi
+  @return $base * $multi
 
 body
-	width: 400px
-	margin: auto
-	margin-top: main(2)
-	//+baseline-grid-background(main(1.5), lighten($red, 40%))
+  width: 400px
+  margin: auto
+  margin-top: main(2)
+  //+baseline-grid-background(main(1.5), lighten($red, 40%))
 img
-	width: 100%
-	left: 0
-	margin: main(1) 0
+  width: 100%
+  left: 0
+  margin: main(1) 0
 
 body
-	font-family: "PT Serif", "Georgia", serif	// transitional serifs
+  font-family: "PT Serif", "Georgia", serif // transitional serifs
 
 p, .text
-	font:
-		size: main(1)
-	line-height: main(1.5)
+  font:
+    size: main(1)
+  line-height: main(1.5)
 
 p
-	text-indent: main(1)
-	&:first-of-type
-		text-indent: 0
+  text-indent: main(1)
+  &:first-of-type
+    text-indent: 0
 
 h1
-	font:
-		size: main(2)
-		weight: bold
-	display: block
-	margin:
-		bottom: main(1)
+  font:
+    size: main(2)
+    weight: bold
+  display: block
+  margin:
+    bottom: main(1)
 
 #menu
-	margin:
-		top: main(.5)
-	li:after
-		content: ","
-	li:last-child:after
-		content: "."
+  margin:
+    top: main(.5)
+  li:after
+    content: ","
+  li:last-child:after
+    content: "."
 
 #footer
-	margin:
-		top: main(.5)
-		bottom: main(1)
+  margin:
+    top: main(.5)
+    bottom: main(1)
 
 li
-	display: inline-block
-	font:
-		size: main(.75)
-	padding:
-		right: main(.5)
+  display: inline-block
+  font:
+    size: main(.75)
+  padding:
+    right: main(.5)
 
 a
-	color: $red
-	&:hover
-		color: darken($red, 20%)
+  color: $red
+  &:hover
+    color: darken($red, 20%)
 
 i 
-	font-style: italic
+  font-style: italic
 
+b
+  font-weight: bold
+
+pre, code
+  font:
+    family: 'PT Mono'
+    size: main(0.85)

@@ -1,0 +1,17 @@
+Нисден — говно
+==============
+
+[Полная документация](http://blogengine.ru/help/text/).
+
+  ((http://yandex.ru Яндекс))
+  picture.jpg Я в 12 лет
+  [play] /music/news.mp3 Ilya Birman: News
+
+
+Человек сначала придумывает текст, а потом к нему добавляет ссылки, а не наоборот.
+
+У похожих вещей должен быть похожий синтаксис:
+
+  [Яндекс](http://yandex.ru)
+  !​[Я в 12 лет](/picture.jpg)
+  @​[Ilya Birman: News](/news.mp3)

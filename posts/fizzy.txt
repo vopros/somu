@@ -9,4 +9,4 @@
 !(/junk/fizzy.png)
 
 Файл заметки и будет её УРЛом.
-Синтаксис — [Таун](/about/town/).
+Синтаксис — [Таун](http://github.com/malfermu/town).

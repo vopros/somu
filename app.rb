@@ -6,11 +6,11 @@ require 'slim'
 
 configure do
   Compass.add_project_configuration './compass.rb'
-  set :show_exceptions, false
+  #set :show_exceptions, false
 end
 
 error { File.read $error }
-set :public, $public
+set :public_folder, $public
 set :port, $port
 
 # SASS/Compass & CSS
