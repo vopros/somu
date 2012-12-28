@@ -31,15 +31,18 @@ get '/instajour/:page' do
   $instajour.generate page
 end
 
-# Fizzy Markdown
+# Fizzy
+
+%w[/nolde/? /blog/~1/?].each do |p|
+  get(p) {redirect '/blog/'}
+end
+
 get '/blog/?' do
   @id = '*'
   @page = 1
   slim :blog
 end
 
-get('/nolde/?') { redirect '/blog/' }
-get('/blog/~1/?') { redirect '/blog/' }
 get '/blog/~*/?' do |page|
   @id = "*"
   @page = page.to_i
