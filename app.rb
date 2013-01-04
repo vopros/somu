@@ -1,4 +1,5 @@
 # encoding: utf-8
+Dir.chdir File.dirname(__FILE__)
 require './settings'
 require 'compass'
 require 'sinatra'
