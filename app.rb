@@ -34,7 +34,7 @@ end
   get(it) {|q| redirect "/blog/#{q}/"}
 end
 
-get '/blog/rss.xml' do  
+get '/blog/rss/?' do  
   builder :rss
 end  
 
