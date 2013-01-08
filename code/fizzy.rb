@@ -4,7 +4,7 @@ require 'town'
 
 class Fizzy
   attr_reader :name, :author, :description, :url
-  def initialize name, author, description, per = 10, url = '/blog/', posts = 'posts', dump = 'timestamps.yaml'
+  def initialize name, author, description, per = 10, url = '/blog/', posts = 'posts', dump = 'timestamps.yml'
     @posts, @url, @per, @dump = posts, url, per, dump # Kinda obvious, huh?
     @name, @author, @description = name, author, description
     @header = /(?<=<h1>).+(?=<\/h1>)/ #=> <h1>(match)</h1>
