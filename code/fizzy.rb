@@ -19,6 +19,11 @@ class Fizzy
     end
   end
 
+  def link id
+    basename = id[/(?<=\/)[^\/\.]+(?=\.)/]
+    "#{@url}#{basename}/"
+  end
+
   def sort posts
     posts.sort_by do |file|
       if @time[file].nil?
@@ -40,11 +45,8 @@ class Fizzy
 
     out = ''; all[those].each do |post|
       html = "<div class='post'>#{post.dress}</div>"
-      if id == '*'
-        basename = post[/(?<=\/)[^\/\.]+(?=\.)/]
-        direct = "#{@url}#{basename}/"
-        html.gsub!(@header) {|h| "<a href='#{direct}'>#{h}</a>"}
-      end # Date: convert & put it after H1
+      html.gsub!(@header) {|h| "<a href='#{link post}'>#{h}</a>"} if id == '*'
+      # Date: convert & put it after H1
       date = (Time.at @time[post]).strftime('%d.%m')
       html.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{date}</div>"}
       out << html

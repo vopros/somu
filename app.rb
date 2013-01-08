@@ -7,7 +7,7 @@ require 'slim'
 
 configure do
   Compass.add_project_configuration './compass.rb'
-  set :show_exceptions, false
+  #set :show_exceptions, false
 end
 
 error { File.read $error }
@@ -15,27 +15,28 @@ set :public_folder, $public
 set :port, $port
 
 # SASS/Compass & CSS
-get '/assets/*.css' do |css|
+get '/*.css' do |css|
   style = "#{$styles}/#{css}.css"
   return File.read(style) if File.exists?(style)
   sass :"#{css}", Compass.sass_engine_options.merge(views: $styles)
 end
 
-# CoffeeScript & JS
-get '/assets/*.js' do |js|
-  script = "#{$scripts}/#{js}.js"
-  File.read script
-end
-
 get '/instajour/:page' do
-  page = params[:page]
-  $instajour.generate page
+  $instajour.generate params[:page]
 end
 
 # Fizzy
-%w[/nolde/? /blog/~1/?].each do |p|
-  get(p) {redirect '/blog/'}
+%w[/nolde/? /blog/~1/?].each do |it|
+  get(it) {redirect '/blog/'}
 end
+
+%w[/nolde/all/*/? /nolde/*/?].each do |it|
+  get(it) {|q| redirect "/blog/#{q}/"}
+end
+
+get '/blog/rss.xml' do  
+  builder :rss
+end  
 
 get '/blog/?' do
   @id = '*'

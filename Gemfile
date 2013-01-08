@@ -5,4 +5,5 @@ gem 'psych'
 gem 'thin'
 gem 'slim'
 gem 'compass'
-gem "town", "~> 0.1.3"
+gem 'builder'
+gem "town", "~> 0.1.6"

@@ -3,7 +3,6 @@
 Dir["./code/*.rb"].each {|file| require file}
 $views = 'views'
 $styles = 'styles'
-$scripts = 'scripts'
 $public = 'public'
 
 # Variables
