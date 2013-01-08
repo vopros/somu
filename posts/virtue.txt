@@ -1,9 +1,8 @@
-Бланк
-=====
+Вёрчью
+======
 
 Сделал тему для Тумблера, добротную:
 
-[!(/junk/blank.png)](http://malfermu.tumblr.com)
-@[Caprice: Fae Fae Fae Fae Fae Fae Fae](/music/fae.mp3)
+[!(/junk/blank.png)](http://tumblr.malfer.mu)
 
 Исключительно для картинок. [Плаг’н’плей](http://gist.github.com/4285295).
