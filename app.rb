@@ -34,6 +34,7 @@ end
   get(it) {|q| redirect "/blog/#{q}/"}
 end
 
+get('/rss/?') { redirect '/blog/rss/' }
 get '/blog/rss/?' do  
   builder :rss
 end  
