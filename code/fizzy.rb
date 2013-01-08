@@ -24,14 +24,21 @@ class Fizzy
     "#{@url}#{basename}/"
   end
 
-  def sort posts
-    posts.sort_by do |file|
+  def time id
+    Time.at @time[id]
+  end
+
+  def sort id, page = 1
+    all = Dir["#{@posts}/#{id}"]
+    all.sort_by! do |file|
       if @time[file].nil?
         @time[file] = Time.now.to_i 
         File.write @dump, Psych.dump(@time)
       end; -@time[file]
     end
-  end
+    raise "No posts found: #{id}" if all.empty?
+    those = page.pred * @per...page * @per
+  all[those]; end
 
   def check page
     edge = page * @per
@@ -39,15 +46,11 @@ class Fizzy
   end
 
   def show id, page = 1
-    all = sort Dir["#{@posts}/#{id}"]
-    those = page.pred * @per...page * @per
-    raise "No posts found: #{id}" if all.empty?
-
-    out = ''; all[those].each do |post|
+    out = ''; sort(id, page).each do |post|
       html = "<div class='post'>#{post.dress}</div>"
       html.gsub!(@header) {|h| "<a href='#{link post}'>#{h}</a>"} if id == '*'
       # Date: convert & put it after H1
-      date = (Time.at @time[post]).strftime('%d.%m')
+      date = (time post).strftime('%d.%m')
       html.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{date}</div>"}
       out << html
     end; out

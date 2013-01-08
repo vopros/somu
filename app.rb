@@ -30,7 +30,7 @@ end
   get(it) {redirect '/blog/'}
 end
 
-%w[/nolde/all/*/? /nolde/*/?].each do |it|
+%w[/nolde/all/*/? /blog/all/*/? /nolde/*/?].each do |it|
   get(it) {|q| redirect "/blog/#{q}/"}
 end
 
