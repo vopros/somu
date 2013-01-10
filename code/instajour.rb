@@ -1,4 +1,5 @@
 require 'json'
+require 'open-uri'
 
 class Instajour
   attr_reader :title, :author, :description
@@ -6,7 +7,8 @@ class Instajour
     @endpoint = "https://api.instagram.com/v1/users/self/media/recent?count=60&access_token=#{token}"
     @title, @author, @description = title, author, description
   end
-  def generate page = ''
+
+  def generate page = nil
     @endpoint += "&max_id=#{page}" unless page.nil? # if specified
     response = JSON.parse open(@endpoint) {|f| f.read } 
     photos, out = [], ''

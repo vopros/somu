@@ -7,9 +7,8 @@ Dir["./code/*.rb"].each {|file| require file}
 set :styles, 'styles'
 set :views, 'views'
 set :public_folder, 'public'
-set :port, 1996
 
-set :show_exceptions, false
+set :show_exceptions, true#false
 error { File.read 'views/error.html' }
 
 $i = Instajour.new(

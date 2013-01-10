@@ -6,10 +6,6 @@ get '/*.css' do |css|
     .merge(views: settings.styles, output: :compressed)
 end
 
-get '/instajour/*/?' do |id|
-  $i.generate id
-end
-
 # Fizzy
 %w[/nolde/all/*/? /blog/all/*/?
 /nolde/*/?].each do |it|
@@ -40,6 +36,10 @@ get '/blog/*/?' do |post|
   @id = "#{post}.*"
   @page = 1
   slim :blog
+end
+
+get '/instajour/:id' do
+  $i.generate params[:id]
 end
 
 get '/' do
