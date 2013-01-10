@@ -12,7 +12,8 @@ class Fizzy
 
   def title id
     # JS does this; for search engines only
-    "#{@posts}/#{id}".dress[@header]
+    # For speed, it searches for the header right in Markdown
+    File.read("#{@posts}/#{id}")[/^.+(?=\n===+)|(?<=#)[^#\n]+|^.+(?=\n---+)/]
   end
 
   def link id
