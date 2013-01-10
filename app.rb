@@ -1,12 +1,9 @@
-configure do
-  Compass.add_project_configuration './compass.rb'
-end
-
 # SASS/Compass & CSS
 get '/*.css' do |css|
   style = "#{$styles}/#{css}.css"
   return File.read(style) if File.exists?(style)
-  sass :"#{css}", Compass.sass_engine_options.merge(views: $styles)
+  sass :"#{css}", Compass.sass_engine_options
+    .merge(views: $styles, output: :compressed)
 end
 
 get '/instajour/*/?' do |id|
