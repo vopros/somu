@@ -1,9 +1,8 @@
 require 'date'
-require 'psych'
-require 'town'
 
 class Fizzy
   attr_reader :name, :author, :description, :url
+
   def initialize name, author, description, per = 10, url = '/blog/', posts = 'posts', dump = 'timestamps.yml'
     @posts, @url, @per, @dump = posts, url, per, dump # Kinda obvious, huh?
     @name, @author, @description = name, author, description
@@ -13,14 +12,11 @@ class Fizzy
 
   def title id
     # JS does this; for search engines only
-    return @name if id == '*'
-    Dir["#{@posts}/#{id}"].each do |post|
-      return post.dress[@header]
-    end
+    "#{@posts}/#{id}".dress[@header]
   end
 
   def link id
-    basename = id[/(?<=\/)[^\/\.]+(?=\.)/]
+    basename = id[/[^\/]+(?=\..+$)/]
     "#{@url}#{basename}/"
   end
 
@@ -28,7 +24,7 @@ class Fizzy
     Time.at @time[id]
   end
 
-  def sort id, page = 1
+  def show id, page = 1
     all = Dir["#{@posts}/#{id}"]
     all.sort_by! do |file|
       if @time[file].nil?
@@ -45,14 +41,10 @@ class Fizzy
     not Dir["#{@posts}/*"][edge].nil?
   end
 
-  def show id, page = 1
-    out = ''; sort(id, page).each do |post|
-      html = "<div class='post'>#{post.dress}</div>"
-      html.gsub!(@header) {|h| "<a href='#{link post}'>#{h}</a>"} if id == '*'
-      # Date: convert & put it after H1
-      date = (time post).strftime('%d.%m')
-      html.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{date}</div>"}
-      out << html
-    end; out
-  end
+  def post path
+    post = path.dress
+    post.gsub!(@header) {|h| "<a href='#{link post}'>#{h}</a>"} if id == '*'
+    date = (time post).strftime('%d.%m')
+    post.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{date}</div>"}
+  post; end
 end

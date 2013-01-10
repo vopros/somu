@@ -1,5 +1,4 @@
 require 'json'
-require 'open-uri'
 
 class Instajour
   attr_reader :title, :author, :description

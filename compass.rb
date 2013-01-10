@@ -3,7 +3,7 @@ images_dir = 'public'
 
 http_path = "/"
 http_images_path = ""
-http_stylesheets_path = "assets/"
+http_stylesheets_path = "/"
 project_path = Sinatra::Application.root
 
 output_style = :compressed

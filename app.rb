@@ -1,18 +1,6 @@
-# encoding: utf-8
-Dir.chdir File.dirname(__FILE__)
-require './settings'
-require 'compass'
-require 'sinatra'
-require 'slim'
-
 configure do
   Compass.add_project_configuration './compass.rb'
-  #set :show_exceptions, false
 end
-
-error { File.read $error }
-set :public_folder, $public
-set :port, $port
 
 # SASS/Compass & CSS
 get '/*.css' do |css|
@@ -21,23 +9,26 @@ get '/*.css' do |css|
   sass :"#{css}", Compass.sass_engine_options.merge(views: $styles)
 end
 
-get '/instajour/:page' do
-  $instajour.generate params[:page]
+get '/instajour/*/?' do |id|
+  $instajour.generate id
 end
 
 # Fizzy
-%w[/nolde/? /blog/~1/?].each do |it|
-  get(it) {redirect '/blog/'}
+%w[/nolde/? /blog/~1/?
+/nolde/all/*/? /blog/all/*/?
+/nolde/*/?].each do |it|
+  get(it) {|q| redirect "/blog/#{q}"}
 end
 
-%w[/nolde/all/*/? /blog/all/*/? /nolde/*/?].each do |it|
-  get(it) {|q| redirect "/blog/#{q}/"}
+%w[].each do |it|
+  get(it) { redirect "/blog/#{q}/"}
 end
+
 
 get('/rss/?') { redirect '/blog/rss/' }
 get '/blog/rss/?' do  
   builder :rss
-end  
+end 
 
 get '/blog/?' do
   @id = '*'

@@ -1,12 +1,12 @@
 doctype html
 html
   head
-    title = $instajour.title
+    title = $i.title
     meta http-equiv='Content-Type' content='text/html; charset=utf-8'
     meta name='viewport' content='width=device-width, initial-scale=1.0'
-    meta name='author' content='#{$instajour.author}'
-    meta name='description' content='#{$instajour.description}'
+    meta name='author' content='#{$i.author}'
+    meta name='description' content='#{$i.description}'
     link rel='shortcut icon' href='/favicon.ico'
     link rel='stylesheet' href='/instajour.css'
     script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js'
-  body: .page == $instajour.generate
+  body: .page == $i.generate
