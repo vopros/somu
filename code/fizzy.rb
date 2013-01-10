@@ -36,11 +36,11 @@ class Fizzy
     those = page.pred * @per...page * @per
   all[those]; end
 
-  def check page
+  def check id, page
     # Checks if the page exists
     # (good for pagination)
     edge = page * @per
-    not Dir["#{@posts}/*"][edge].nil?
+    not Dir["#{@posts}/#{id}"][edge].nil?
   end
 
   def post path
