@@ -6,7 +6,6 @@ class Fizzy
   def initialize name, author, description, per = 10, url = '/blog/', posts = 'posts', dump = 'timestamps.yml'
     @posts, @url, @per, @dump = posts, url, per, dump # Kinda obvious, huh?
     @name, @author, @description = name, author, description
-    @header = /(?<=<h1>).+(?=<\/h1>)/ #=> <h1>(match)</h1>
     @time = (Psych.load_file @dump if File.exists? @dump) || {}
   end
 
@@ -16,9 +15,9 @@ class Fizzy
     File.read("#{@posts}/#{id}")[/^.+(?=\n===+)|(?<=#)[^#\n]+|^.+(?=\n---+)/]
   end
 
-  def link id
+  def link id, symbol = ''
     basename = id[/[^\/]+(?=\..+$)/]
-    "#{@url}#{basename}/"
+    "#{@url + symbol + basename}/"
   end
 
   def time id
@@ -38,14 +37,16 @@ class Fizzy
   all[those]; end
 
   def check page
+    # Checks if the page exists
+    # (good for pagination)
     edge = page * @per
     not Dir["#{@posts}/*"][edge].nil?
   end
 
   def post path
     post = path.dress
-    post.gsub!(@header) {|h| "<a href='#{link post}'>#{h}</a>"} if id == '*'
     date = (time post).strftime('%d.%m')
     post.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{date}</div>"}
+    post.gsub!(/(?<=<h1>).+(?=<\/h1>)/) {|h| "<a href='#{link post}'>#{h}</a>"} if id == '*'
   post; end
 end
