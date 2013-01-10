@@ -9,7 +9,7 @@ set :views, 'views'
 set :public_folder, 'public'
 set :port, 1996
 
-set :show_exceptions, true
+set :show_exceptions, false
 error { File.read 'views/error.html' }
 
 $i = Instajour.new(

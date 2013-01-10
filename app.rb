@@ -11,14 +11,17 @@ get '/instajour/*/?' do |id|
 end
 
 # Fizzy
-%w[/nolde/? /blog/~1/?
-/nolde/all/*/? /blog/all/*/?
+%w[/nolde/all/*/? /blog/all/*/?
 /nolde/*/?].each do |it|
   get(it) {|q| redirect "/blog/#{q}"}
 end
 
+%w[/nolde/? /blog/~1/?].each do |it|
+  get(it) {redirect '/blog/'}
+end
+
 %w[/rss/? /blog/rss/].each do |it|
-  get(it) { builder :rss }
+  get(it) {builder :rss}
 end 
 
 get '/blog/?' do
