@@ -12,7 +12,8 @@ class Fizzy
   def title id
     # JS does this; for search engines only
     # For speed, it searches for the header right in Markdown
-    File.read("#{@posts}/#{id}")[/^.+(?=\n===+)|(?<=#)[^#\n]+|^.+(?=\n---+)/]
+    post = Dir["#{@posts}/#{id}"].first
+    File.read(post)[/^.+(?=\n===+)|(?<=#)[^#\n]+|^.+(?=\n---+)/]
   end
 
   def link id, symbol = ''
@@ -43,10 +44,10 @@ class Fizzy
     not Dir["#{@posts}/#{id}"][edge].nil?
   end
 
-  def post path
+  def post path, id
     post = path.dress
-    date = (time post).strftime('%d.%m')
+    date = (time path).strftime('%d.%m')
+    post.gsub!(/(?<=<h1>).+(?=<\/h1>)/) {|h| "<a href='#{link path}'>#{h}</a>"} if id == '*'
     post.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{date}</div>"}
-    post.gsub!(/(?<=<h1>).+(?=<\/h1>)/) {|h| "<a href='#{link post}'>#{h}</a>"} if id == '*'
   post; end
 end

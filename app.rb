@@ -3,7 +3,7 @@ get '/*.css' do |css|
   style = "#{$styles}/#{css}.css"
   return File.read(style) if File.exists?(style)
   sass :"#{css}", Compass.sass_engine_options
-    .merge(views: $styles, output: :compressed)
+    .merge(views: settings.styles, output: :compressed)
 end
 
 get '/instajour/*/?' do |id|

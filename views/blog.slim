@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title = $f.title @id || $f.name
+    title = ($f.title @id unless @id == '*') || $f.name
     meta http-equiv='Content-Type' content='text/html; charset=utf-8'
     meta name='viewport' content='width=device-width, initial-scale=1.0'
     meta name='author' content='#{$f.author}'
@@ -28,8 +28,8 @@ html
       .nav.prev: a href="#{$f.link @page.pred, '~'}" = "№#{@page.pred}"
     / Content
     .page
-      - $f.show(@id, @page).each do |post|
-        .post == $f.post
+      - $f.show(@id, @page).each do |path|
+        .post == $f.post path, @id
     / Next page
     - if $f.check(@id, @page)
       .nav.next: a href="#{$f.link @page.next, '~'}" = "№#{@page.next}"
