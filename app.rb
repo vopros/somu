@@ -10,7 +10,7 @@ get '/*.css' do |css|
 end
 
 get '/instajour/*/?' do |id|
-  $instajour.generate id
+  $i.generate id
 end
 
 # Fizzy
@@ -20,14 +20,8 @@ end
   get(it) {|q| redirect "/blog/#{q}"}
 end
 
-%w[].each do |it|
-  get(it) { redirect "/blog/#{q}/"}
-end
-
-
-get('/rss/?') { redirect '/blog/rss/' }
-get '/blog/rss/?' do  
-  builder :rss
+%w[/rss/? /blog/rss/].each do |it|
+  get(it) { builder :rss }
 end 
 
 get '/blog/?' do
