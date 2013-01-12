@@ -3,10 +3,9 @@ require 'date'
 class Fizzy
   attr_reader :name, :author, :description, :url
 
-  def initialize name, author, description, per = 10, url = '/blog/', posts = 'posts', dump = 'timestamps.yml'
+  def initialize name, author, description, per = 10, url = '/blog/', posts = 'posts'
     @posts, @url, @per, @dump = posts, url, per, dump # Kinda obvious, huh?
     @name, @author, @description = name, author, description
-    @time = (Psych.load_file @dump if File.exists? @dump) || {}
   end
 
   def title id
@@ -22,16 +21,16 @@ class Fizzy
   end
 
   def time id
-    Time.at @time[id]
+    Time.at $redis.get(id)
   end
 
   def show id, page = 1
     all = Dir["#{@posts}/#{id}"]
-    all.sort_by! do |file|
-      if @time[file].nil?
-        @time[file] = Time.now.to_i 
-        File.write @dump, Psych.dump(@time)
-      end; -@time[file]
+    all.sort_by! do |post|
+      timestamp = $redis.get(post)
+      if timestamp.nil?
+        $redis.set(post, Time.now.to_i)
+      end; -timestamp
     end
     raise "No posts found: #{id}" if all.empty?
     those = page.pred * @per...page * @per

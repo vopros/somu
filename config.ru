@@ -9,6 +9,8 @@ set :views, 'views'
 set :public_folder, 'public'
 set :port, 1996
 
+$redis = Redis.new(driver: :hiredis)
+
 $i = Instajour.new(
   '206005842.5d3b7bd.5a58ba2f68e247a9b97839bf6a5eb6a0',
   'Инстажур Георгия',
@@ -25,8 +27,8 @@ $f = Fizzy.new(
 require './app'
 
 configure :production do
-  Bundler.require :development
-  error {File.read 'views/error.html'}
+  Bundler.require :production
   set :show_exceptions, false
+  error {File.read 'views/error.html'}
   run Sinatra::Application
 end
