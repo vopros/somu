@@ -6,14 +6,6 @@ get '/*.css' do |css|
     .merge(views: settings.styles, output: :compressed)
 end
 
-def take request, operation = 'File.read(file)'
-  if ctime(file)
-    parsed = eval operation
-    cache.set file, parsed
-  end
-  cache.get file
-end
-
 # Fizzy
 %w[/nolde/all/*/? /blog/all/*/?
 /nolde/*/?].each do |it|

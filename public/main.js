@@ -10,4 +10,4 @@ document.$scroll = function() {
 };
 
 $(window).bind ('scroll', document.$scroll);
-window.onload = function () {document.$scroll();};
+window.onload = function() {document.$scroll();};
