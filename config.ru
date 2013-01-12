@@ -25,7 +25,10 @@ $f = Fizzy.new(
 require './app'
 
 configure :production do
+  Bundler.require :development
+  set :cache_output_dir, '/public/cache/'
+  set :cache_enabled, true
+  error {File.read 'views/error.html'}
   set :show_exceptions, false
-  error { File.read 'views/error.html' }
   run Sinatra::Application
 end
