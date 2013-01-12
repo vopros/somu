@@ -21,18 +21,18 @@ class Fizzy
   end
 
   def time id
-    Time.at $redis.get(id)
+    Time.at $redis.get(id).to_i
   end
 
   def show id, page = 1
     all = Dir["#{@posts}/#{id}"]
-    all.sort_by! do |post|
-      timestamp = $redis.get(post)
-      if timestamp.nil?
-        $redis.set(post, Time.now.to_i)
-      end; -timestamp
-    end
     raise "No posts found: #{id}" if all.empty?
+
+    all.sort_by! do |post|
+      if $redis.get(post).nil?
+        $redis.set(post, Time.now.to_i)
+      end; -$redis.get(post).to_i
+    end
     those = page.pred * @per...page * @per
   all[those]; end
 

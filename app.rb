@@ -14,10 +14,6 @@ def take request, operation = 'File.read(file)'
   cache.get file
 end
 
-get '/migrate/?' do
-  migrate
-end
-
 # Fizzy
 %w[/nolde/all/*/? /blog/all/*/?
 /nolde/*/?].each do |it|

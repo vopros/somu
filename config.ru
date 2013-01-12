@@ -9,6 +9,10 @@ set :views, 'views'
 set :public_folder, 'public'
 set :port, 1996
 
+configure :development do
+  ENV['MYREDIS_URL'] = 'redis://:DQR22hCCCcHnHWvv6x@pikachu.ec2.myredis.com:7126/'
+end
+
 $redis = Redis.new driver: :hiredis, url: ENV['MYREDIS_URL']
 
 $i = Instajour.new(
