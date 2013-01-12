@@ -38,6 +38,10 @@ get '/blog/*/?' do |post|
   slim :blog
 end
 
+get '/instajour/' do
+  slim :instajour, cache: false
+end
+
 get '/instajour/:id' do
   $i.generate params[:id]
 end
