@@ -9,7 +9,7 @@ set :views, 'views'
 set :public_folder, 'public'
 set :port, 1996
 
-$redis = Redis.new(driver: :hiredis)
+$redis = Redis.new driver: :hiredis, url: ENV['MYREDIS_URL']
 
 $i = Instajour.new(
   '206005842.5d3b7bd.5a58ba2f68e247a9b97839bf6a5eb6a0',
