@@ -7,9 +7,7 @@ Dir["./code/*.rb"].each {|file| require file}
 set :styles, 'styles'
 set :views, 'views'
 set :public_folder, 'public'
-
-set :show_exceptions, true#false
-error { File.read 'views/error.html' }
+set :port, 1996
 
 $i = Instajour.new(
   '206005842.5d3b7bd.5a58ba2f68e247a9b97839bf6a5eb6a0',
@@ -25,4 +23,9 @@ $f = Fizzy.new(
 )
 
 require './app'
-run Sinatra::Application
+
+configure :production do
+  set :show_exceptions, false
+  error { File.read 'views/error.html' }
+  run Sinatra::Application
+end
