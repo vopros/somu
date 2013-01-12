@@ -4,7 +4,7 @@ class Fizzy
   attr_reader :name, :author, :description, :url
 
   def initialize name, author, description, per = 10, url = '/blog/', posts = 'posts'
-    @posts, @url, @per, @dump = posts, url, per, dump # Kinda obvious, huh?
+    @posts, @url, @per = posts, url, per # Kinda obvious, huh?
     @name, @author, @description = name, author, description
   end
 
