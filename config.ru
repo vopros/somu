@@ -26,8 +26,6 @@ require './app'
 
 configure :production do
   Bundler.require :development
-  set :cache_output_dir, '/app/public/cache/'
-  set :cache_enabled, true
   error {File.read 'views/error.html'}
   set :show_exceptions, false
   run Sinatra::Application

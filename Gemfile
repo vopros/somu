@@ -7,7 +7,3 @@ gem 'slim'
 gem 'compass'
 gem 'builder'
 gem "town", "~> 0.1.6"
-
-group :production do
-  gem 'sinatra-cache', :require => 'sinatra/cache'
-end
