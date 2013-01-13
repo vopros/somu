@@ -11,8 +11,8 @@ class Fizzy
   def title post
     # JS does this; for search engines only
     # For speed, it searches for the header right in Markdown
-    File.read Dir["#{@posts}/#{post}"]
-      .first[/^.+(?=\n===+)|(?<=#)[^#\n]+|^.+(?=\n---+)/]
+    File.read(Dir["#{@posts}/#{post}"]
+      .first)[/^.+(?=\n===+)|(?<=#)[^#\n]+|^.+(?=\n---+)/]
   end
 
   def link path, symbol = ''
@@ -55,8 +55,8 @@ class Fizzy
   def post path, post
     # Inject some visual features
     # of the blog (links, time)
-    post = path.dress
-    post.gsub!(/(?<=<h1>).+(?=<\/h1>)/) {|h| "<a href='#{link path}'>#{h}</a>"} #if post == '*'
-    post.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{time(path).strftime('%d.%m')}</div>"}
-  post; end
+    html = path.dress
+    html.gsub!(/(?<=<h1>).+(?=<\/h1>)/) {|h| "<a href='#{link path}'>#{h}</a>"} if post == '*'
+    html.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{time(path).strftime('%d.%m')}</div>"}
+  end
 end
