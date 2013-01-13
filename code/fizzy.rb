@@ -8,45 +8,55 @@ class Fizzy
     @name, @author, @description = name, author, description
   end
 
-  def title id
+  def title post
     # JS does this; for search engines only
     # For speed, it searches for the header right in Markdown
-    post = Dir["#{@posts}/#{id}"].first
-    File.read(post)[/^.+(?=\n===+)|(?<=#)[^#\n]+|^.+(?=\n---+)/]
+    File.read Dir["#{@posts}/#{post}"]
+      .first[/^.+(?=\n===+)|(?<=#)[^#\n]+|^.+(?=\n---+)/]
   end
 
-  def link id, symbol = ''
-    basename = id[/[^\/]+(?=\..+$)/]
-    "#{@url + symbol + basename}/"
+  def link path, symbol = ''
+    # Make a link to the post
+    # NB! Method takes a path, not an id
+    @url + symbol + path[/[^\/]+(?=\..+$)/] + '/'
   end
 
-  def time id
-    Time.at $redis.get(id).to_i
+  def time path
+    # Gets a timestamp from Redis
+    # and converts it to an integer
+    Time.at $redis.get(path).to_i
   end
 
-  def show id, page = 1
-    all = Dir["#{@posts}/#{id}"]
-    raise "No posts found: #{id}" if all.empty?
-
-    all.sort_by! do |post|
-      if $redis.get(post).nil?
-        $redis.set(post, Time.now.to_i)
-      end; -$redis.get(post).to_i
+  def show post, page = 1
+    # Generates an array which
+    # contains all the posts matching
+    # `post` and `page` you’ve provided
+    all = Dir["#{@posts}/#{post}"]
+    raise "No posts found: #{post}" if all.empty?
+    all.sort_by! do |path|
+      # Gets a timestamp from the Redis
+      # and if it doesn’t exist, use &
+      # set it to the current time.
+      timestamp = $redis.get(path)
+      $redis.set(path, Time.now.to_i) if timestamp.nil?
+      timestamp ||= Time.now.to_i
+      -timesamp.to_i # Inverted order
     end
-    those = page.pred * @per...page * @per
+    # Pagination: parse only this page
+    those = (page.pred * @per)...(page * @per)
   all[those]; end
 
-  def check id, page
+  def check post, page
     # Checks if the page exists
     # (good for pagination)
-    edge = page * @per
-    not Dir["#{@posts}/#{id}"][edge].nil?
+    not Dir["#{@posts}/#{post}"][page * @per].nil?
   end
 
-  def post path, id
+  def post path, post
+    # Inject some visual features
+    # of the blog (links, time)
     post = path.dress
-    date = (time path).strftime('%d.%m')
-    post.gsub!(/(?<=<h1>).+(?=<\/h1>)/) {|h| "<a href='#{link path}'>#{h}</a>"} if id == '*'
-    post.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{date}</div>"}
-  post; end
+    post.gsub!(/(?<=<h1>).+(?=<\/h1>)/) {|h| "<a href='#{link path}'>#{h}</a>"} if post == '*'
+    post.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{time(path).strftime('%d.%m')}</div>"}
+  end
 end
