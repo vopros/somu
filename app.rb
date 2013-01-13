@@ -1,14 +1,15 @@
-before '*' do |request|
-  @already = $cache.get(request)
-  return @already unless @already.nil?
-end
+=begin
+configure :production do
+  before '*' do |request|
+    @already = $cache.get(request)
+    return @already unless @already.nil?
+  end
+=end
 
 after '*' do |request|
-  $cache.set(request, response) #if @already.nil?
-end
-
-get '/path/' do
-  $cache.get('/path/') + "12345"
+  p response#$cache.set(request, response) #if @already.nil?
+  p $cache.set(request, response)
+  p $cache.get(request)
 end
 
 # SASS/Compass & CSS
