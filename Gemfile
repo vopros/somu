@@ -13,4 +13,5 @@ gem 'hiredis'
 group :production do
   gem 'dalli'
   gem 'memcachier'
+  gem 'rack-cache', require: 'rack/cache'
 end

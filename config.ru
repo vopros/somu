@@ -31,8 +31,14 @@ configure :production do
   Bundler.require :production
   # Cache everything to
   # minimize Redis queries
-  $cache = Dalli::Client.new
-  $cache.flush
+  set :cache, Dalli::Client.new
+  # Clean it from the last
+  # version’s cache.
+  settings.cache.flush
+  use Rack::Cache,
+    verbose: false,
+    metastore: settings.cache,
+    entitystore: settings.cache
   # Errors should be
   # human-readable
   set :show_exceptions, false

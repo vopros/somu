@@ -1,17 +1,3 @@
-=begin
-configure :production do
-  before '*' do |request|
-    @already = $cache.get(request)
-    return @already unless @already.nil?
-  end
-=end
-
-after '*' do |request|
-  p response#$cache.set(request, response) #if @already.nil?
-  p $cache.set(request, response)
-  p $cache.get(request)
-end
-
 # SASS/Compass & CSS
 get '/*.css' do |css|
   style = "#{settings.styles}/#{css}.css"
