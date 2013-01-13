@@ -1,9 +1,20 @@
-# SASS/Compass & CSS
 get '/*.css' do |css|
   style = "#{settings.styles}/#{css}.css"
+  # Make CSS in `styles` folder possible
   return File.read(style) if File.exists?(style)
+  # Compile SASS with Compass
   sass :"#{css}", Compass.sass_engine_options
     .merge(views: settings.styles, output: :compressed)
+end
+
+configure :production do
+  # Cache everything what
+  # is OK to cache
+  %w[/blog* /*.css].each do |it|
+    before it do
+      cache_control :public, max_age: 31536000
+    end
+  end
 end
 
 #=> Fizzy
@@ -19,10 +30,6 @@ end
 
 %w[/rss/? /blog/rss/].each do |it|
   get(it) {builder :rss}
-end
-
-before '/blog*' do
-  cache_control :public, max_age: 999999
 end
 
 get '/blog/?' do
