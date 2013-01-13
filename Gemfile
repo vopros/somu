@@ -9,3 +9,4 @@ gem 'builder'
 gem 'town', "~> 0.1.6"
 gem 'redis'
 gem 'hiredis'
+gem 'sinatra-cache', require: 'sinatra/cache'
