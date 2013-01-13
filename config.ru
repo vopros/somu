@@ -28,6 +28,7 @@ $f = Fizzy.new(
 require './app'
 
 configure :production do
+  Bundler.require :production
   # Cache everything to
   # minimize Redis queries
   $cache = Dalli::Client.new
