@@ -1,3 +1,12 @@
+before '*' do |request|
+  @already = $cache.get(request)
+  return @already unless @already.nil?
+end
+
+after '*' do |request|
+  $cache.set(request, response) if @already.nil?
+end
+
 # SASS/Compass & CSS
 get '/*.css' do |css|
   style = "#{settings.styles}/#{css}.css"

@@ -9,3 +9,8 @@ gem 'builder'
 gem 'town', "~> 0.1.6"
 gem 'redis'
 gem 'hiredis'
+
+group :production do
+  gem 'dalli'
+  gem 'memcachier'
+end

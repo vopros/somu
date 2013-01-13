@@ -30,7 +30,8 @@ require './app'
 configure :production do
   # Cache everything to
   # minimize Redis queries
-  
+  $cache = Dalli::Client.new
+  $cache.flush_all
   # Errors should be
   # human-readable
   set :show_exceptions, false
