@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title = ($f.title @id unless @id == '*') || $f.name
+    title = ($f.name if @post == '*') || $f.title(@post)
     meta http-equiv='Content-Type' content='text/html; charset=utf-8'
     meta name='viewport' content='width=device-width, initial-scale=1.0'
     meta name='author' content='#{$f.author}'
@@ -19,7 +19,7 @@ html
     script src='http://raw.github.com/ilyabirman/jouele/master/jouele/jouele.js'
   body
     / Header
-    - if @id == '*' and @page == 1
+    - if @page == 1 and @post == '*'
       .header = $f.name
     - else
       .header: a href='#{$f.url}' = $f.name
@@ -28,9 +28,9 @@ html
       .nav.prev: a href="#{$f.link @page.pred, '~'}" = "№#{@page.pred}"
     / Content
     .page
-      - $f.show(@id, @page).each do |path|
-        .post == $f.post path, @id
+      - $f.show(@post, @page).each do |path|
+        .post == $f.post path, @post
     / Next page
-    - if $f.check(@id, @page)
+    - if $f.check(@post, @page)
       .nav.next: a href="#{$f.link @page.next, '~'}" = "№#{@page.next}"
     br

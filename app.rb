@@ -6,7 +6,8 @@ get '/*.css' do |css|
     .merge(views: settings.styles, output: :compressed)
 end
 
-# Fizzy
+#=> Fizzy
+
 %w[/nolde/all/*/? /blog/all/*/?
 /nolde/*/?].each do |it|
   get(it) {|q| redirect "/blog/#{q}"}
@@ -18,28 +19,24 @@ end
 
 %w[/rss/? /blog/rss/].each do |it|
   get(it) {builder :rss}
-end 
+end
 
 get '/blog/?' do
-  @id = '*'
   @page = 1
+  @post = '*'
   slim :blog
 end
 
 get '/blog/~*/?' do |page|
-  @id = "*"
   @page = page.to_i
+  @post = '*'
   slim :blog
 end
 
 get '/blog/*/?' do |post|
-  @id = "#{post}.*"
   @page = 1
+  @post = "#{post}.*"
   slim :blog
-end
-
-get '/instajour/' do
-  slim :instajour, cache: false
 end
 
 get '/instajour/:id' do

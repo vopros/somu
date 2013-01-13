@@ -40,7 +40,7 @@ class Fizzy
       timestamp = $redis.get(path)
       $redis.set(path, Time.now.to_i) if timestamp.nil?
       timestamp ||= Time.now.to_i
-      -timesamp.to_i # Inverted order
+      -timestamp.to_i # Inverted order
     end
     # Pagination: parse only this page
     those = (page.pred * @per)...(page * @per)
@@ -56,7 +56,7 @@ class Fizzy
     # Inject some visual features
     # of the blog (links, time)
     post = path.dress
-    post.gsub!(/(?<=<h1>).+(?=<\/h1>)/) {|h| "<a href='#{link path}'>#{h}</a>"} if post == '*'
+    post.gsub!(/(?<=<h1>).+(?=<\/h1>)/) {|h| "<a href='#{link path}'>#{h}</a>"} #if post == '*'
     post.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{time(path).strftime('%d.%m')}</div>"}
-  end
+  post; end
 end
