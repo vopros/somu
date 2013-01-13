@@ -50,12 +50,6 @@ get '/blog/*/?' do |post|
   slim :blog
 end
 
-get '/instajour/?' do
-  # Don’t cache it!
-  # Too dynamic!
-  slim :instajour, cache: false
-end
-
 get '/instajour/:id' do
   $i.generate params[:id]
 end

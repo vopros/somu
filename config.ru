@@ -41,7 +41,7 @@ configure :production do
     entitystore: settings.cache
   # Errors should be
   # human-readable
-  set :show_exceptions, false
+  disable :show_exceptions
   error {File.read 'views/error.html'}
   run Sinatra::Application
 end
