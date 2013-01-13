@@ -4,6 +4,12 @@ class Fizzy
   attr_reader :name, :author, :description, :url
 
   def initialize name, author, description, per = 10, url = '/blog/', posts = 'posts'
+    # `name`: Blog’s title, shown in <title>
+    # `author`: Blog’s author, used in the header & meta
+    # `description`: What is blog about, used in the meta
+    # `per`: Posts per page
+    # `url`: Absolute URL of the blog (with prepending and trailing slashes)
+    # `posts`: Folder where posts are located
     @posts, @url, @per = posts, url, per # Kinda obvious, huh?
     @name, @author, @description = name, author, description
   end
