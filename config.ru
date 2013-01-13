@@ -30,8 +30,7 @@ require './app'
 configure :production do
   # Cache everything to
   # minimize Redis queries
-  set :cache_enabled, true
-  set :cache_output_dir, "/full/path/2/app/root/public/system/cache"
+  
   # Errors should be
   # human-readable
   set :show_exceptions, false
