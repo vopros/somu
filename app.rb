@@ -4,12 +4,11 @@ before '*' do |request|
 end
 
 after '*' do |request|
-  $cache.set(request, response) if @already.nil?
+  $cache.set(request, response) #if @already.nil?
 end
 
 get '/path/' do
-  $cache.set('/path/', 'bla')
-  $cache.get('/path/')
+  $cache.get('/path/') + "12345"
 end
 
 # SASS/Compass & CSS
