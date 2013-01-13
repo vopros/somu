@@ -21,6 +21,10 @@ end
   get(it) {builder :rss}
 end
 
+before '/blog*' do
+  cache_control :public, max_age: 999999
+end
+
 get '/blog/?' do
   @page = 1
   @post = '*'
