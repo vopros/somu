@@ -7,6 +7,11 @@ after '*' do |request|
   $cache.set(request, response) if @already.nil?
 end
 
+get '/path/' do
+  $cache.set('/path/', 'bla')
+  $cache.get('/path/')
+end
+
 # SASS/Compass & CSS
 get '/*.css' do |css|
   style = "#{settings.styles}/#{css}.css"
