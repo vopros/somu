@@ -32,6 +32,7 @@ configure :production do
   # Cache everything to
   # minimize Redis queries
   set :cache, Dalli::Client.new
+  $time = Time.now
   # Clean it from the last
   # version’s cache.
   settings.cache.flush
