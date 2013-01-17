@@ -4,10 +4,9 @@ require 'bundler/setup'
 Bundler.require :default
 
 Dir["./code/*.rb"].each {|file| require file}
-set :styles, 'styles'
-set :views, 'views'
 set :public_folder, 'public'
-set :port, 1996
+set :views, 'templates'
+set :styles, 'styles'
 
 ENV['MYREDIS_URL'] = 'redis://:DQR22hCCCcHnHWvv6x@pikachu.ec2.myredis.com:7126/'
 $redis = Redis.new driver: :hiredis, url: ENV['MYREDIS_URL']
@@ -25,6 +24,8 @@ $f = Fizzy.new(
   'Околодизайн, и всё, чем я интересуюсь.'
 )
 
+# Run it!
+set :port, 1996
 require './app'
 
 configure :production do
@@ -32,6 +33,9 @@ configure :production do
   # Cache everything to
   # minimize Redis queries
   set :cache, Dalli::Client.new
+  # Set application deployment
+  # time to use in etags as an
+  # indetifier in the future
   $time = Time.now
   # Clean it from the last
   # version’s cache.
