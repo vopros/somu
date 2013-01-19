@@ -24,7 +24,7 @@ class Fizzy
   def link path, symbol = ''
     # Make a link to the post
     # NB! Method takes a path, not an id
-    @url + symbol + path[/[^\/]+(?=\..+$)/] + '/'
+    @url + symbol + path[/[^\/]+(?=\..+$)/].gsub(':', '/') # + '/'
   end
 
   def time path
