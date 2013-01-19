@@ -57,7 +57,7 @@ get '/blog/*/?' do |post|
   # page of all posts
   # called `post.*`.
   @page = 1
-  @post = "#{post}.*"
+  @post = "#{post.gsub '/', ':'}.*"
   slim :blog
 end
 
