@@ -15,7 +15,7 @@ configure :production do
   # Cache everything what is OK to cache.
   %w[/blog* /*.css / /rss/?].each do |it|
     before it do
-      cache_control :public, max_age: 31536000
+      # cache_control :public, max_age: 31536000
       etag $time
     end
   end
