@@ -53,6 +53,6 @@ configure :production do
   # Errors should be
   # human-readable
   disable :show_exceptions
-  error {File.read 'views/error.html'}
+  error {File.read "#{settings.views}/error.html"}
   run Sinatra::Application
 end
