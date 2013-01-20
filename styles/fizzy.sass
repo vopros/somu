@@ -1,8 +1,24 @@
 @import main
 
+.red
+  // Class for JS
+  color: $red
+
 iframe
   width: 400px
   height: 225px
+
+ul, ol
+  margin-top: main(1)
+
+li
+  display: block
+  font-size: main(1)
+  margin-left: main(1)
+  &:after
+    content: ','
+  &:last-of-type:after
+    content: '.'
 
 body
   margin-top: 0

@@ -25,12 +25,12 @@ html
       .header: a href='#{$f.url}' = $f.name
     / Previous page
     - unless @page == 1
-      .nav.prev: a href="#{$f.link @page.pred, '~'}" = "№#{@page.pred}"
+      .nav.prev: a href='#{$f.link "~#{@page.pred}."}' = "№#{@page.pred}"
     / Content
     .page
       - $f.show(@post, @page).each do |path|
         .post == $f.post path, @post
     / Next page
     - if $f.check(@post, @page)
-      .nav.next: a href="#{$f.link @page.next, '~'}" = "№#{@page.next}"
+      .nav.next: a href='#{$f.link "~#{@page.next}."}' = "№#{@page.next}"
     br
