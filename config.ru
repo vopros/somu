@@ -8,9 +8,6 @@ set :public_folder, 'public'
 set :views, 'templates'
 set :styles, 'styles'
 
-ENV['MYREDIS_URL'] = 'redis://:DQR22hCCCcHnHWvv6x@pikachu.ec2.myredis.com:7126/'
-$redis = Redis.new driver: :hiredis, url: ENV['MYREDIS_URL']
-
 $i = Instajour.new(
   '206005842.5d3b7bd.5a58ba2f68e247a9b97839bf6a5eb6a0',
   'Инстажур Георгия',
@@ -23,6 +20,15 @@ $f = Fizzy.new(
   'Георгий Тимощенко',
   'Околодизайн, и всё, чем я интересуюсь.'
 )
+
+ENV['MYREDIS_URL'] = 'redis://:DQR22hCCCcHnHWvv6x@pikachu.ec2.myredis.com:7126/'
+$redis = Redis.new driver: :hiredis, url: ENV['MYREDIS_URL']
+# Delete all unnecessary keys
+# from Redis (bad boy feature)
+dir = Dir["#{$f.posts}/*"]
+$redis.keys('*').each do |key|
+  $redis.del(key) unless dir.include? key
+end
 
 # Run it!
 set :port, 1996
@@ -38,7 +44,7 @@ configure :production do
   # indetifier in the future
   $time = Time.now
   # Clean it from the last
-  # version’s cache.
+  # version’s cache
   settings.cache.flush
   use Rack::Cache,
     verbose: false,

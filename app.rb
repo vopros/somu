@@ -1,3 +1,7 @@
+get '/keys/?' do
+  $redis.keys('*')
+end
+
 get '/*.css' do |css|
   style = "#{settings.styles}/#{css}.css"
   # Make CSS in `styles` folder possible.

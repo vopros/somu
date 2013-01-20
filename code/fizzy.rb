@@ -1,7 +1,7 @@
 require 'date'
 
 class Fizzy
-  attr_reader :name, :author, :description, :url
+  attr_reader :name, :author, :description, :url, :posts
 
   def initialize name, author, description, per = 10, url = '/blog/', posts = 'posts'
     # `name`: Blog’s title, shown in <title>
