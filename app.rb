@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-get '/yale/*/?' do |search|
+get '/yale/*' do |search|
   redirect "http://yandex.ru/yandsearch?text=#{search}" if search[/\p{Cyrillic}/]
   redirect "http://google.com/search?q=#{search}"
 end
