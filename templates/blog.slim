@@ -1,14 +1,14 @@
 doctype html
 html
   head
-    title = ($f.name if @post == '*') || $f.title(@post)
+    title = (Fizzy.name if @post == '*') || Fizzy.title(@post)
     meta http-equiv='Content-Type' content='text/html; charset=utf-8'
     meta name='viewport' content='width=device-width, initial-scale=1.0'
-    meta name='author' content='#{$f.author}'
-    meta name='description' content='#{$f.description}'
+    meta name='author' content='#{Fizzy.author}'
+    meta name='description' content='#{Fizzy.description}'
     link rel='shortcut icon' href='/favicon.ico'
     link rel='stylesheet' href='/fizzy.css'
-    link rel='alternate' type='application/rss+xml' title='#{$f.name}' href='#{$f.url}rss/'
+    link rel='alternate' type='application/rss+xml' title='#{Fizzy.name}' href='#{Fizzy.url}rss/'
     link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Mono|PT+Serif:400,700,400italic,700italic&subset=latin,cyrillic'
     script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'
     script src='/main.js'
@@ -20,17 +20,17 @@ html
   body
     / Header
     - if @page == 1 and @post == '*'
-      .header = $f.name
+      .header = Fizzy.author
     - else
-      .header: a href='#{$f.url}' = $f.name
+      .header: a href='#{Fizzy.url}' = Fizzy.author
     / Previous page
     - unless @page == 1
-      .nav.prev: a href='#{$f.link "~#{@page.pred}."}' = "№#{@page.pred}"
+      .nav.prev: a href='#{Fizzy.link "~#{@page.pred}."}' = "№#{@page.pred}"
     / Content
     .page
-      - $f.show(@post, @page).each do |path|
-        .post == $f.post path, @post
+      - Fizzy.show(@post, @page).each do |path|
+        .post == Fizzy.post path, @post
     / Next page
-    - if $f.check(@post, @page)
-      .nav.next: a href='#{$f.link "~#{@page.next}."}' = "№#{@page.next}"
+    - if Fizzy.check(@post, @page)
+      .nav.next: a href='#{Fizzy.link "~#{@page.next}."}' = "№#{@page.next}"
     br

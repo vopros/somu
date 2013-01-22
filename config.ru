@@ -15,17 +15,27 @@ $i = Instajour.new(
   'Образы, которые меня впечатлили.'
 )
 
-$f = Fizzy.new(
-  'Блог Георгия Тимощенко',
-  'Георгий Тимощенко',
-  'Околодизайн, и всё, чем я интересуюсь.'
-)
+Fizzy.configure do |c|
+  c.title = 'George’s blog'
+  c.author = 'George Timoschenko'
+  c.description = 'Semi-design, my beloved projects & interests.'
+  #c.per = 10
+end
+
+=begin
+Instajour.configure do |c|
+  c.token = '206005842.5d3b7bd.5a58ba2f68e247a9b97839bf6a5eb6a0'
+  c.title = 'George’s instajour'
+  c.author = 'George Timoschenko'
+  c.description = 'Exciting shapes and forms.'
+end
+=end
 
 ENV['MYREDIS_URL'] = 'redis://:DQR22hCCCcHnHWvv6x@pikachu.ec2.myredis.com:7126/'
 $redis = Redis.new driver: :hiredis, url: ENV['MYREDIS_URL']
 # Delete all unnecessary keys
 # from Redis (bad boy feature)
-dir = Dir["#{$f.posts}/*"]
+dir = Dir["#{Fizzy.posts}/*"]
 $redis.keys('*').each do |key|
   $redis.del(key) unless dir.include? key
 end

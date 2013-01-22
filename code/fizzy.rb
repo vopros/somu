@@ -1,17 +1,17 @@
 require 'date'
 
-class Fizzy
-  attr_reader :name, :author, :description, :url, :posts
-
-  def initialize name, author, description, per = 10, url = '/blog/', posts = 'posts'
-    # `name`: Blog’s title, shown in <title>
+class Fizzy; class << self
+  attr_accessor :title, :author, :per, :description, :url, :posts
+  def configure
+    # `title`: Blog’s title, shown in <title>
     # `author`: Blog’s author, used in the header & meta
     # `description`: What is blog about, used in the meta
     # `per`: Posts per page
     # `url`: Absolute URL of the blog (with prepending and trailing slashes)
     # `posts`: Folder where posts are located
-    @posts, @url, @per = posts, url, per # Kinda obvious, huh?
-    @name, @author, @description = name, author, description
+    @title, @author, @description = 'Blog Name', 'John Doe', "Yet another Ruby Hacker's blog."
+    @posts, @url, @per = 'posts', '/blog/', 10
+    yield self
   end
 
   def title post
@@ -63,6 +63,6 @@ class Fizzy
     # of the blog (links, time)
     html = path.dress
     html.gsub!(/(?<=<h1>).+(?=<\/h1>)/) {|h| "<a href='#{link path}'>#{h}</a>"} if post == '*'
-    html.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{time(path).strftime('%d.%m')}</div>"}
+    html.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{time(path).strftime('%e %b').gsub(' ', '&nbsp;')}</div>"}
   end
-end
+end; end

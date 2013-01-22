@@ -1,5 +1,16 @@
 # encoding: utf-8
 
+get '/keys/?' do
+  $redis.set('posts/libertarian.txt', 1357985805)
+  $redis.set('posts/prompt.txt', 1357640205)
+  $redis.set('posts/fuckyeah.txt', 1356359430)
+  $redis.set('posts/fizzy.txt', 1356359200)
+  $redis.set('posts/virtue.txt', 1356273030)
+  $redis.set('posts/suprematism.txt', 1348748602)
+  $redis.set('posts/instajour.txt', 1345551802)
+  $redis.set('posts/hail.txt', 1342520602)
+end
+
 get '/yale/*' do |search|
   redirect "http://yandex.ru/yandsearch?text=#{search}" if search[/\p{Cyrillic}/]
   redirect "http://google.com/search?q=#{search}"
