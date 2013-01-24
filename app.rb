@@ -9,7 +9,7 @@ posts/suprematism.txt 1348748602
 posts/prompt.txt 1357640205
 posts/fuckyeah.txt 1356359430
 posts/instajour.txt 1345551802'.split("\n").map {|n| n.split(' ')}.each do |a|
-    $redis.set(a[0], a[1])
+    $redis.set(a[0], a[1].to_i)
   end
 end
 
