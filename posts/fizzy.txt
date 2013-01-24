@@ -1,12 +1,19 @@
-Физи
-====
+Fizzy
+=====
 
-Готов мой движок блога, Физи.
-До этого у меня стояла [Эгея](http://blogengine.ru).
+My blog engine, Fizzy, is ready.
 
-В Физи, чтобы добавить заметку, её нужно написать:
+[Andreas Pihlström](http://scriptogr.am) inspired me to make an easy-to-use blog engine for a geek like me.
+
+I’ve succeeded, I suppose.
+You write a simple Markdown document:
 
 !(/junk/fizzy.png)
 
-Файл заметки и будет её УРЛом.
-Синтаксис — [Таун](http://github.com/malfermu/town).
+Fizzy renders it part-by-part (long live to regexps).
+
+[Town](http://github.com/malfermu/town) syntax. Automatic timestamps.
+Redis database. Easy to configure.
+70 lines of code. Smart cache.
+
+Detailed description coming soon.

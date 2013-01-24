@@ -1,12 +1,12 @@
-Супрематизм
+Suprematism
 ===========
 
-Мне девушка подарила квадрат:
+My girlfriend made me a fine *square* present:
 
 !(/junk/suprematism.png)
 
-Invalid a little bit. [Тут же оцифровал](/all/square/).
-На [Слиме](http://slim-lang.com) он выглядел бы ещё минималистичнее:
+Invalid a little bit. [Digitized](/all/square/).
+[Slim](http://slim-lang.com) version is even better:
 
   html
     head

@@ -1,15 +1,16 @@
-Промпт
+Prompt
 ======
 
-Мне стало приятнее писать команды в Терминале благодаря одному скрипту:
+This very bash script made my everyday Terminal routine cleaner and neater:
+
 ```
 echo 'PROMPT="[%~]%# "' >> ~/.zshrc && touch ~/.hushlogin && chsh -s /bin/zsh
 ```
 
-После него — никакого мусора:
+Look how clean it is:
 
 !(/junk/shell.png)
 
-Никаких больше `My-MacBook-Air:~ malfermu$`, только папка, в которой ты находишься : `[~/documents]%`.
+No `My-MacBook-Air:~ malfermu$` clutter, only the folder you’re in: `[~/documents]%`.
 
-Не забудьте [Инконсолату ЛГС](/inconsolata.zip) 10 кегля поставить.
+I advise you to use [Inconsolata](/inconsolata.zip) *10 points* in your code and command line. Good for your eyes & typography karma.

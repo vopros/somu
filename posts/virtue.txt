@@ -1,8 +1,8 @@
-Вёрчью
+Virtue
 ======
 
-Сделал тему для Тумблера *(NB! голые девушки)*:
+Created a Tumblr theme (*NSFW*):
 
-[!(/junk/blank.png)](http://tumblr.malfer.mu)
+[!(/junk/virtue.png)](http://tumblr.malfer.mu)
 
-Исключительно для картинок. [Плаг’н’плей](http://gist.github.com/4285295).
+Photos only. [Plug’n’play](http://gist.github.com/4285295).

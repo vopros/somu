@@ -1,14 +1,17 @@
-Факйеах
-=======
+Fuckyeah
+========
 
-Изначальная имплементация библиотеки Факйеах для Джейквери принадлежит [Артёму Поликарпову](http://github.com/artpolikarpov/fuckyeah).
+The initial implementation of Fuckyeah belongs to [Artёm Polikarpov](http://github.com/artpolikarpov/fuckyeah).
 
-Я [портировал её](http://github.com/malfermu/fuckyeah) под Руби 1.9.
-Прошу любить и жаловать. Работает из коробки с Рельсами 3 и Синатрой. Главное, это простой АПИ:
+I’ve [ported it](http://github.com/malfermu/fuckyeah) to Ruby 1.9.
+
+Works out-of-the-box with Rails 3 and Sinatra.
+Scales. Got a simple-to-use API:
 
   require 'fuckyeah'
   all = Dir["posts/*"].fuckyeah
 
-Устанавливайте и используйте:
+Under the [WTFPL](http://www.wtfpl.net/).
+Install and use in your projects:
 
   gem install fuckyeah

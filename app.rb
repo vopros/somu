@@ -71,7 +71,7 @@ end
 get '/instajour/:id' do
   # Just generate it,
   # no layout needed.
-  $i.generate params[:id]
+  Instajour.generate params[:id]
 end
 
 get '/' do

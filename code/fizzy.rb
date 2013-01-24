@@ -11,6 +11,7 @@ class Fizzy; class << self
     # `posts`: Folder where posts are located
     @title, @author, @description = 'Blog Name', 'John Doe', "Yet another Ruby Hacker's blog."
     @posts, @url, @per = 'posts', '/blog/', 10
+    # Configure it!
     yield self
   end
 

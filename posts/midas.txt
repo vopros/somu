@@ -1,0 +1,70 @@
+Midas
+=====
+
+This is the first post dedicated to my future programming language, Midas (the name stands for *Matter Irradiation Dissociative Acceleration System*).
+
+I’ll try to describe some key features.
+Treat it as a sneak-peek. Let’s start with:
+
+File-oriented programming
+-------------------------
+
+Have you heard of it? Neither have I.
+There is no concept of classes & objects.
+
+There are files. If you want to isolate a piece of code,
+place it into a different file:
+
+```
+<b>vars.mi</b>
+foo: 3
+
+<b>app.mi</b>
+bar: 4 + 1
+bar + ./vars foo
+```
+
+This code returns `8`.
+
+Indent-based
+------------
+
+I am a Ruby fan, you know.
+Somewhere at the very bottom of my soul, I hate it:
+
+        end
+      end
+    end
+  end
+
+C/PHP/Whatever developers, this **is** full of bullshit:
+
+        }
+      }
+    }
+  }
+
+
+Semantic indentation is the only feature of Python I love, because it *does allow* to write in a drier way.
+
+Philosophy
+----------
+
+The philosophy is: use as little characters to write a program you need as possible.
+
+Don’t repeat yourself. Keep it sophisticated.
+Hail to regular expressions!
+Avoid using words, use symbols.
+
+The language tries to be chaotic as hell (literally).
+Chaos is the power. It’s going to be like:
+
+<!-- Buy them, they are cool: http://malneirophrenia.com/ -->
+@[Malneirophrenia: Il Valzer Degli Zombi](/music/zombi.mp3)
+
+Fast
+----
+
+It is a compiled language. Your neat Midas code translates into efficient C, so you don’t need to worry about perfomance-related issues.
+
+More soon.
