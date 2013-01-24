@@ -22,8 +22,9 @@ Fizzy.configure do |c|
   c.description = 'Semi-design, my beloved projects & interests.'
 end
 
-ENV['MYREDIS_URL'] = 'redis://:DQR22hCCCcHnHWvv6x@pikachu.ec2.myredis.com:7126/'
-$redis = Redis.new driver: :hiredis, url: ENV['MYREDIS_URL']
+configure :development do
+  ENV["REDISCLOUD_URL"] = `heroku config:get REDISCLOUD_URL`
+end; $redis = Redis.new driver: :hiredis, url: ENV["REDISCLOUD_URL"]
 # Delete all unnecessary keys
 # from Redis (bad boy feature)
 dir = Dir["#{Fizzy.posts}/*"]
@@ -32,7 +33,7 @@ $redis.keys('*').each do |key|
 end
 
 # Run it!
-set :port, 1996
+set :port, 1995
 require './app'
 
 configure :production do

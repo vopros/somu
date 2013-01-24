@@ -1,5 +1,18 @@
 # encoding: utf-8
 
+get '/keys/?' do
+  out = []
+  'posts/midas.txt 1358988844
+posts/fizzy.txt 1356359200
+posts/virtue.txt 1356273030
+posts/suprematism.txt 1348748602
+posts/prompt.txt 1357640205
+posts/fuckyeah.txt 1356359430
+posts/instajour.txt 1345551802'.split("\n").map {|n| n.split(' ')}.each do |a|
+    $redis.set(a[0], a[1])
+  end
+end
+
 get '/yale/*' do |search|
   redirect "http://yandex.ru/yandsearch?text=#{search}" if search[/\p{Cyrillic}/]
   redirect "http://google.com/search?q=#{search}"
