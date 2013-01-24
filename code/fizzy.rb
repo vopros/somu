@@ -1,7 +1,7 @@
 require 'date'
 
 class Fizzy; class << self
-  attr_accessor :header, :title, :author, :per, :description, :url, :posts
+  attr_accessor :name, :author, :per, :description, :url, :posts
   def configure
     # `title`: Blog’s title, shown in <title>
     # `author`: Blog’s author, used in the header & meta

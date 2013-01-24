@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title = (Fizzy.name if @post == '*') || Fizzy.title(@post)
+    title == (Fizzy.name if @post == '*') || Fizzy.title(@post)
     meta http-equiv='Content-Type' content='text/html; charset=utf-8'
     meta name='viewport' content='width=device-width, initial-scale=1.0'
     meta name='author' content='#{Fizzy.author}'
@@ -20,9 +20,9 @@ html
   body
     / Header
     - if @page == 1 and @post == '*'
-      .header = Fizzy.header
+      .header = Fizzy.name
     - else
-      .header: a href='#{Fizzy.url}' = Fizzy.header
+      .header: a href='#{Fizzy.url}' = Fizzy.name
     / Previous page
     - unless @page == 1
       .nav.prev: a href='#{Fizzy.link "~#{@page.pred}."}' = "№#{@page.pred}"

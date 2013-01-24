@@ -17,8 +17,7 @@ Instajour.configure do |c|
 end
 
 Fizzy.configure do |c|
-  c.header = 'Design, Code & Languages'
-  c.title = 'George’s Blog'
+  c.name = 'Design, Code & Languages'
   c.author = 'Design & Code'
   c.description = 'Semi-design, my beloved projects & interests.'
 end
