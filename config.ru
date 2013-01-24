@@ -13,6 +13,7 @@ Instajour.configure do |c|
   c.title = 'George’s Instajour'
   c.author = 'George Timoschenko'
   c.description = 'Exciting shapes and forms.'
+  c.url = '/photos/'
 end
 
 Fizzy.configure do |c|

@@ -35,7 +35,7 @@ end
 end
 
 %w[/nolde/? /blog/~1/?].each do |it|
-  get(it) {redirect '/blog/'}
+  get(it) {redirect '/blog'}
 end
 
 %w[/rss/? /blog/rss/].each do |it|
@@ -68,7 +68,11 @@ get '/blog/*/?' do |post|
   slim :blog
 end
 
-get '/instajour/:id' do
+%w[/instajour/? /phot*].each do |it|
+  get(it) { redirect '/photos' }
+end
+
+get '/photos/:id' do
   # Just generate it,
   # no layout needed.
   Instajour.generate params[:id]

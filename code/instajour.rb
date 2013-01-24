@@ -2,13 +2,13 @@ require 'json'
 require 'open-uri'
 
 class Instajour; class << self
-  attr_accessor :token, :title, :author, :description
+  attr_accessor :token, :url, :title, :author, :description
   def configure
     # `token`: Instagram access token, generate here: http://stylehatch.co/instagram/
     # `title`: Title of Instajourm used in <title>
     # `author`: Instajour’s author, used in the meta
     # `description`: What is it about, used in the meta
-    @token = '206005842.22c41e6.e73c76e153fd43de8cb9d81b2f13100a'
+    @token, @url = '206005842.22c41e6.e73c76e153fd43de8cb9d81b2f13100a', '/instajour/'
     @title, @author, @description = "John Doe's Instajour", 'John Doe', 'Visual innovations.'
     # Configure it!
     yield self
@@ -51,7 +51,7 @@ class Instajour; class << self
     unless after.nil?
       out << "<script>
       $('body').append('<div class=page></div>');
-      $('.page:last').load('#{after}');
+      $('.page:last').load('#{@url + after}');
       </script>"
     end
   out; end
