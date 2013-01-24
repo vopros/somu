@@ -23,8 +23,8 @@ Fizzy.configure do |c|
 end
 
 configure :development do
-  ENV["REDISCLOUD_URL"] = `heroku config:get REDISCLOUD_URL`
-end; $redis = Redis.new driver: :hiredis, url: ENV["REDISCLOUD_URL"]
+  ENV["REDISTOGO_URL"] = `heroku config:get REDISTOGO_URL`
+end; $redis = Redis.new driver: :hiredis, url: ENV["REDISTOGO_URL"]
 # Delete all unnecessary keys
 # from Redis (bad boy feature)
 dir = Dir["#{Fizzy.posts}/*"]
