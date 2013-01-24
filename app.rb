@@ -68,7 +68,7 @@ get '/blog/*/?' do |post|
   slim :blog
 end
 
-%w[/instajour/? /phot*].each do |it|
+%w[/instajour/? /photo/? /p/?].each do |it|
   get(it) { redirect '/photos' }
 end
 
