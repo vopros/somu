@@ -17,8 +17,9 @@ Instajour.configure do |c|
 end
 
 Fizzy.configure do |c|
-  c.title = 'George’s blog'
-  c.author = 'George Timoschenko'
+  c.header = 'Design, Code & Languages'
+  c.title = 'George’s Blog'
+  c.author = 'Design & Code'
   c.description = 'Semi-design, my beloved projects & interests.'
 end
 
@@ -33,7 +34,7 @@ $redis.keys('*').each do |key|
 end
 
 # Run it!
-set :port, 1995
+set :port, 1997
 require './app'
 
 configure :production do

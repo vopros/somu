@@ -20,9 +20,9 @@ html
   body
     / Header
     - if @page == 1 and @post == '*'
-      .header = Fizzy.author
+      .header = Fizzy.header
     - else
-      .header: a href='#{Fizzy.url}' = Fizzy.author
+      .header: a href='#{Fizzy.url}' = Fizzy.header
     / Previous page
     - unless @page == 1
       .nav.prev: a href='#{Fizzy.link "~#{@page.pred}."}' = "№#{@page.pred}"
