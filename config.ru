@@ -33,7 +33,7 @@ $redis.keys('*').each do |key|
 end
 
 # Run it!
-set :port, 1997
+set :port, 1996
 require './app'
 
 configure :production do

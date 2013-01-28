@@ -6,6 +6,7 @@ get '/yale/*' do |search|
 end
 
 get '/*.css' do |css|
+  content_type 'text/css', :charset => 'utf-8'
   style = "#{settings.styles}/#{css}.css"
   # Make CSS in `styles` folder possible.
   return File.read(style) if File.exists?(style)
@@ -57,6 +58,11 @@ get '/blog/~*/?' do |page|
   @page = page.to_i
   @post = '*'
   slim :blog
+end
+
+get '/blog/*.txt/?' do |source|
+  content_type 'text/plain', :charset => 'utf-8'
+  File.read "#{Fizzy.posts}/#{source.gsub '/', ':'}.txt"
 end
 
 get '/blog/*/?' do |post|

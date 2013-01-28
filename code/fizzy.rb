@@ -64,6 +64,6 @@ class Fizzy; class << self
     # of the blog (links, time)
     html = path.dress
     html.gsub!(/(?<=<h1>).+(?=<\/h1>)/) {|h| "<a href='#{link path}'>#{h}</a>"} if post == '*'
-    html.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time'>#{time(path).strftime('%e %b').gsub(' ', '&nbsp;')}</div>"}
+    html.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time' title='#{time(path).ctime}'>#{time(path).strftime('%e %b').gsub(' ', '&nbsp;')}</div>"}
   end
 end; end

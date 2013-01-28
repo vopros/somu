@@ -17,6 +17,11 @@ a:hover img
 @function main($multi: 1, $base: 15px)
   @return $base * $multi
 
+sup
+  font-size: main(1) / 1.61803399
+  vertical-align: 6px
+  font-weight: bold
+
 pre
   display: inline-block
   max-width: 40em
@@ -82,7 +87,7 @@ li
 a
   color: $red
   &:hover
-    color: darken($red, 20%)
+    color: darken($red, 10%)
 
 i 
   font-style: italic
