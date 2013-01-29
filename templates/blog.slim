@@ -10,13 +10,7 @@ html
     link rel='stylesheet' href='/fizzy.css'
     link rel='alternate' type='application/rss+xml' title='#{Fizzy.name}' href='#{Fizzy.url}rss/'
     link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Mono|PT+Serif:400,700,400italic,700italic&subset=latin,cyrillic'
-    script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'
-    script src='/main.js'
-    / Jouele
     link rel='stylesheet' href='/jouele/jouele.css'
-    link id='jouele-swf-object' href='//jplayer.org/2.1.0/js/Jplayer.swf'
-    script src='//jplayer.org/2.1.0/js/jquery.jplayer.min.js'
-    script src='/jouele/jouele.js'
   body
     / Header
     - if @page == 1 and @post == '*'
@@ -34,3 +28,8 @@ html
     - if Fizzy.check(@post, @page)
       .nav.next: a href='#{Fizzy.link "~#{@page.next}."}' = "№#{@page.next}"
     br
+    script src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'
+    link id='jouele-swf-object' href='//jplayer.org/2.1.0/js/Jplayer.swf'
+    script src='//jplayer.org/2.1.0/js/jquery.jplayer.min.js'
+    script src='/jouele/jouele.js'
+    script src='/main.js'
