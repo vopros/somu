@@ -24,6 +24,7 @@ end
 
 configure :development do
   ENV["REDISTOGO_URL"] = `heroku config:get REDISTOGO_URL`
+  Town.configure {}
 end; $redis = Redis.new driver: :hiredis, url: ENV["REDISTOGO_URL"]
 # Delete all unnecessary keys
 # from Redis (bad boy feature)
@@ -37,6 +38,11 @@ set :port, 1996
 require './app'
 
 configure :production do
+  Town.configure do |c|
+    # CDN for speed
+    # (servers everywhere)
+    c.cdn = "http://#{ENV["CDN_SUMO_URL"]}"
+  end
   Bundler.require :production
   # Cache everything to
   # minimize Redis queries

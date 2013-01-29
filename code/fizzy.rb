@@ -62,7 +62,7 @@ class Fizzy; class << self
   def post path, post
     # Inject some visual features
     # of the blog (links, time)
-    html = path.dress
+    html = Town.render File.read path
     html.gsub!(/(?<=<h1>).+(?=<\/h1>)/) {|h| "<a href='#{link path}'>#{h}</a>"} if post == '*'
     html.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time' title='#{time(path).ctime}'>#{time(path).strftime('%e %b').gsub(' ', '&nbsp;')}</div>"}
   end
