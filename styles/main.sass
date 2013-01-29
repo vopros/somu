@@ -46,7 +46,7 @@ img
 body
   font-family: "PT Serif", "Georgia", serif // transitional serifs
 
-p, .text
+p, .text, li
   font:
     size: main(1)
   line-height: main(1.5)
@@ -65,25 +65,26 @@ h1
     bottom: main(1)
 
 #menu
+  font-style: italic
+  font-weight: bold
   margin:
     top: main(.5)
-  li:after
-    content: ","
-    color: $red
-  li:last-child:after
-    content: "."
+  li
+    display: inline-block
+    margin-right: main(.25)
+    &:after
+      content: ","
+      color: $red
+    &:last-child:after
+      content: "."
+    &:nth-last-child(2):after
+      content: " &"
 
 #footer
+  font-style: italic
   margin:
-    top: main(.5)
+    //top: main(.5)
     bottom: main(1)
-
-li
-  display: inline-block
-  font:
-    size: main(.75)
-  padding:
-    right: main(.5)
 
 a
   color: $red
