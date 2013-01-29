@@ -42,7 +42,7 @@ configure :production do
   Town.configure do |c|
     # CDN for speed
     # (servers everywhere)
-    c.cdn = "http://#{ENV["CDN_SUMO_URL"]}"
+    # c.cdn = "http://#{ENV["CDN_SUMO_URL"]}"
   end
   Bundler.require :production
   # Cache everything to
