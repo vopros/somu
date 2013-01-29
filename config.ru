@@ -10,7 +10,7 @@ set :styles, 'styles'
 
 Instajour.configure do |c|
   c.token = '206005842.5d3b7bd.5a58ba2f68e247a9b97839bf6a5eb6a0'
-  c.title = 'George’s Instajour'
+  c.title = 'George’s photos'
   c.author = 'George Timoschenko'
   c.description = 'Exciting shapes and forms.'
   c.url = '/photos/'
