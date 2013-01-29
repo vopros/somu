@@ -6,7 +6,7 @@ get '/yale/*' do |search|
 end
 
 get '/*.css' do |css|
-  content_type 'text/css', :charset => 'utf-8'
+  content_type 'text/css', charset: 'utf-8'
   style = "#{settings.styles}/#{css}.css"
   # Make CSS in `styles` folder possible.
   return File.read(style) if File.exists?(style)
@@ -40,7 +40,7 @@ end
 end
 
 %w[/rss/? /blog/rss/].each do |it|
-  get(it) {builder :rss}
+  get(it) {content_type 'application/rss+xml', charset: 'utf-8'; builder :rss}
 end
 
 get '/blog/?' do
@@ -61,7 +61,7 @@ get '/blog/~*/?' do |page|
 end
 
 get '/blog/*.txt/?' do |source|
-  content_type 'text/plain', :charset => 'utf-8'
+  content_type 'text/plain', charset: 'utf-8'
   File.read "#{Fizzy.posts}/#{source.gsub '/', ':'}.txt"
 end
 
