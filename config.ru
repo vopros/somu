@@ -20,7 +20,7 @@ Fizzy.configure do |c|
   c.name = 'Design, Code & Languages'
   c.author = 'Design & Code'
   c.description = 'Semi-design, my beloved projects & interests.'
-  c.per = 5
+  c.per = 10
 end
 
 configure :development do
