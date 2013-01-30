@@ -15,7 +15,7 @@ There is no concept of classes & objects.
 There are files. If you want to isolate a piece of code,
 place it into a different file:
 
-```midas
+```
 <b>vars.mi</b>
 foo: 3
 
@@ -23,6 +23,7 @@ foo: 3
 bar: 4 + 1
 bar + ./vars foo
 ```
+
 
 This code returns `8`.
 
@@ -44,8 +45,7 @@ C/PHP/Whatever developers, this **is** full of bullshit:
     }
   }
 
-
-Semantic indentation is the only feature of Python I love, because it *does allow* to write in a drier way.
+Semantic indentation is the only feature of Python I love, because it *does allow* to write ina drier way.
 
 Philosophy
 ----------

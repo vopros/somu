@@ -11,14 +11,14 @@ set :styles, 'styles'
 Instajour.configure do |c|
   c.token = '206005842.5d3b7bd.5a58ba2f68e247a9b97839bf6a5eb6a0'
   c.title = 'George’s photos'
-  c.author = 'George Timoschenko'
+  c.author = 'George'
   c.description = 'Exciting shapes and forms.'
   c.url = '/photos/'
 end
 
 Fizzy.configure do |c|
   c.name = 'Design, Code & Languages'
-  c.author = 'Design & Code'
+  c.author = 'George'
   c.description = 'Semi-design, my beloved projects & interests.'
   c.per = 10
 end

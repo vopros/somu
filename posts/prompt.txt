@@ -3,7 +3,7 @@ Prompt
 
 This very bash script made my everyday Terminal routine cleaner and neater:
 
-```
+```shell
 echo 'PROMPT="[%~]%# "' >> ~/.zshrc && touch ~/.hushlogin && chsh -s /bin/zsh
 ```
 
