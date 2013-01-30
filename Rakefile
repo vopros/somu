@@ -18,7 +18,7 @@ task :run do
 end
 
 task :push do
-  puts 'Commit name:'
+  print 'Commit name: '
   `git add -A`
   `git commit -am "#{STDIN.gets.chomp}"`
   `git push origin master`
