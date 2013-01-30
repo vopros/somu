@@ -3,6 +3,6 @@ Virtue
 
 Created a Tumblr theme (*NSFW*):
 
-[!(/junk/virtue.png)](http://tumblr.malfer.mu)
+[!(/junk/virtue.png)](http://tumblr.so.mu)
 
 Photos only. [Plug’n’play](http://gist.github.com/4285295).
