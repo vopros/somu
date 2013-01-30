@@ -6,7 +6,7 @@ gem 'thin'
 gem 'slim'
 gem 'compass'
 gem 'builder'
-gem 'town', "~> 0.4.3"
+gem 'town', "~> 0.4.4"
 gem 'redis'
 gem 'hiredis'
 
