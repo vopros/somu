@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'date'
 
 class Fizzy; class << self
@@ -64,6 +65,12 @@ class Fizzy; class << self
     # of the blog (links, time)
     html = Town.render File.read path
     html.gsub!(/(?<=<h1>).+(?=<\/h1>)/) {|h| "<a href='#{link path}'>#{h}</a>"} if post == '*'
-    html.gsub!(/<h1>.+<\/h1>/) {|h| "#{h} <div class='time' title='#{time(path).ctime}'>#{time(path).strftime('%e %b').gsub(' ', '&nbsp;')}</div>"}
+    # Time processing: russian time for russian
+    # posts, nice layout, right position &c.
+    date = time(path).strftime('%e %b').gsub(' ', '&nbsp;')
+    date.gsub!(/[A-Z][a-z]{2}/, 'Jan' => 'Янв', 'Feb' => 'Фев', 'Mar' => 'Мар', 'Apr' => 'Апр',
+      'May' => 'Май', 'Jun' => 'Июн', 'Jul' => 'Июл', 'Aug' => 'Авг', 'Sep' => 'Сен', 'Oct' => 'Окт',
+      'Nov' => 'Ноя', 'Dec' => 'Дек') if /\p{Cyrillic}{2,}/.match(html)
+    html.gsub!(/<h1>.+<\/h1>/) { |h| "#{h} <div class='time' title='#{time(path).ctime}'>#{date}</div>"}
   end
 end; end
