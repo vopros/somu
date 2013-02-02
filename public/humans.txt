@@ -1,0 +1,16 @@
+George ソム
+==========
+
+Email & Jabber:
+malfermu@malfer.mu
+
+App.net:
+//alpha.app.net/somu
+
+Location:
+Moscow, Russia
+
+Components:
+Ruby, Sinatra, Fizzy,
+Town, Instajour, SASS,
+Compass, Slim

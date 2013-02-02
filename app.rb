@@ -12,7 +12,7 @@ get '/*.css' do |css|
   return File.read(style) if File.exists?(style)
   # Compile SASS with Compass.
   sass :"#{css}", Compass.sass_engine_options
-    .merge(views: settings.styles, output: :compressed)
+    .merge(views: settings.styles, style: :compact)
 end
 
 configure :production do

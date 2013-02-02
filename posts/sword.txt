@@ -1,0 +1,18 @@
+Sword<img src='/icons/sword.png' class='icon'/>
+=====
+
+Sword is the best designer’s friend ever.
+
+Use SASS/Compass, Slim, HAML, LESS, whatever you want, in your everyday needs.
+
+Install it:
+
+```sh
+gem install sword
+```
+
+And run it in your project directory:
+```
+cd documents/project
+sword
+```
