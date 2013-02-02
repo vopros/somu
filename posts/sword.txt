@@ -14,7 +14,7 @@ And run it in your project directory:
   cd documents/project
   sword
 
-That’s it. `about.haml` is avaliable at [localhost:1111/about](//localhost:1111/about), `css/style.less` is avaliable at [localhost:1111/css/style.css](//localhost:1111/about) and so on.
+That’s it. `about.haml` is avaliable at [localhost:1111/about](//localhost:1111/about), `css/style.less` is available at [localhost:1111/css/style.css](//localhost:1111/about) and so forth.
 
 If you still didn’t get the idea:
 there is an [example project](/sword.zip) to get you started!
