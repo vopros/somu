@@ -1,18 +1,20 @@
 Sword<img src='/icons/sword.png' class='icon'/>
 =====
 
-Sword is the best designer’s friend ever.
+Sword is the best designer’s friend forever ever.
 
-Use SASS/Compass, Slim, HAML, LESS, whatever you want, in your everyday needs.
+Use SASS/Compass, Slim, HAML, LESS, whatever you want, in your everyday needs. Convert it to static and upload to your server when you’re ready.
 
 Install it:
 
-```sh
-gem install sword
-```
+  gem install sword
 
 And run it in your project directory:
-```
-cd documents/project
-sword
-```
+
+  cd documents/project
+  sword
+
+That’s it. `about.haml` is avaliable at [localhost:1111/about](//localhost:1111/about), `css/style.less` is avaliable at [localhost:1111/css/style.css](//localhost:1111/about) and so on.
+
+If you still didn’t get the idea:
+there is an [example project](/sword.zip) to get you started!

@@ -34,7 +34,7 @@ GEM
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     tilt (1.3.3)
-    town (0.4.4)
+    town (0.4.5)
       redcarpet (~> 2.2.2)
 
 PLATFORMS
@@ -51,4 +51,4 @@ DEPENDENCIES
   sinatra
   slim
   thin
-  town (~> 0.4.4)
+  town (~> 0.4.5)
