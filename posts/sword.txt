@@ -1,4 +1,4 @@
-Sword<img src='/icons/sword.png' class='icon'/>
+Sword!(/icons/sword.png)
 =====
 
 Sword is the best designer’s friend forever ever.
@@ -20,3 +20,11 @@ and so forth.
 
 If you still didn’t get the idea:
 there is an [example project](/sword.zip) to get you started!
+
+```ruby
+set :public_folder, '.'
+
+get '/' do
+  take_file 'scrptcam/index.html'
+end
+```

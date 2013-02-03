@@ -8,8 +8,8 @@ document.$scroll = function() {
   });
   if (result) {
     document.title = result.text();
-    $("#favicon").attr("href",
-      result.find('img').size() > 0 ? result.find('img').attr('src') : "/favicon.ico");
+    $("#favicon").attr("href", result.find('img').size() > 0 ?
+      result.find('img').attr('src') : "/favicon.ico");
   }
 };
 
