@@ -1,0 +1,23 @@
+$width: 32px
+
+body
+  width: $width
+  margin: 0 auto $width
+
+.wrap
+  display: table
+  height: 100%
+  width: $width
+  position: relative
+  overflow: hidden
+
+.contain
+  width: $width
+  *position: absolute
+  top: 50%
+  display: table-cell
+  vertical-align: middle
+
+img
+  padding-bottom: 6px
+  vertical-align: middle

@@ -20,7 +20,7 @@ class Fizzy; class << self
     # JS does this; for search engines only
     # For speed, it searches for the header right in Markdown
     (File.read(Dir["#{@posts}/#{post}"]
-      .first)[/^.+(?=\n===+)|(?<=#)[^#\n]+|^.+(?=\n---+)/]).gsub(/<.+?>/, '')
+      .first)[/^.+(?=\n===+)|(?<=#)[^#\n]+|^.+(?=\n---+)/]).gsub(/!\(.+?\)/, '')
   end
 
   def link path

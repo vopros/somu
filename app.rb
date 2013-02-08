@@ -91,8 +91,12 @@ end
 
 # Slim & HTML
 get '/*/?' do |page|
-  html = "#{settings.views}/#{page}.html"
-  # Make HTML in `templates` folder possible.
-  return File.read(html) if File.exists?(html)
-  slim page.to_sym
+  begin
+    html = "#{settings.views}/#{page}.html"
+    # Make HTML in `templates` folder possible.
+    return File.read(html) if File.exists?(html)
+    slim page.to_sym
+  rescue Errno::ENOENT
+    call env.merge('PATH_INFO' => "/blog/#{page}")
+  end
 end
