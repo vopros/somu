@@ -1,7 +1,7 @@
 Fuckyeah
 ========
 
-The initial implementation of Fuckyeah belongs to [Artёm Polikarpov](http://github.com/artpolikarpov/fuckyeah). I’ve [ported it](http://github.com/malfermu/fuckyeah) to Ruby 1.9.
+The initial implementation of Fuckyeah belongs to [Artёm Polikarpov](http://github.com/artpolikarpov/fuckyeah). I’ve [ported it](http://github.com/somu/fuckyeah) to Ruby 1.9.
 
 Works out-of-the-box with Rails 3 and Sinatra.
 Scales. Got a simple-to-use API:

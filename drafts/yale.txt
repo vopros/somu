@@ -7,5 +7,5 @@ Yale
 Чтобы встроить в Хром, найдите в настройках Search→Manage Search Engines... и создавайте такую:
 
 ```
-Yale    malfer.mu    http://malfer.mu/yale/%s
+Yale    so.mu    http://so.mu/yale/%s
 ```

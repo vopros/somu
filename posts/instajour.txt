@@ -5,4 +5,4 @@ Instajour
 
 [!(/works/instajour.png)](/photos)
 
-PHP. Code is avaliable [on Github](http://github.com/malfermu/instajour).
+PHP. Code is avaliable [on Github](http://github.com/somu/instajour).

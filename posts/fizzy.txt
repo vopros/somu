@@ -12,7 +12,7 @@ You write a simple Markdown document:
 
 Fizzy renders it part-by-part (long live to regexps).
 
-[Town](http://github.com/malfermu/town) syntax. Automatic timestamps.
+[Town](http://github.com/somu/town) syntax. Automatic timestamps.
 Redis database. Easy to configure.
 70 lines of code. Smart cache.
 
