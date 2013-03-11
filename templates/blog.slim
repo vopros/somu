@@ -1,15 +1,12 @@
 doctype html
 html
   head
+    == slim :head
     title == (Fizzy.name if @post == '*') || Fizzy.title(@post)
-    meta http-equiv='Content-Type' content='text/html; charset=utf-8'
-    meta name='viewport' content='width=device-width, initial-scale=1.0'
     meta name='author' content='#{Fizzy.author}'
     meta name='description' content='#{Fizzy.description}'
-    link id='favicon' rel='shortcut icon' href='/favicon.ico'
-    link rel='stylesheet' href='/fizzy.css'
     link rel='alternate' type='application/rss+xml' title='#{Fizzy.name}' href='#{Fizzy.url}rss/'
-    link rel='stylesheet' href='//fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Inconsolata|PT+Mono&subset=latin'
+    link rel='stylesheet' href='/fizzy.css'
     link rel='stylesheet' href='/jouele/jouele.css'
   body
     / Header
