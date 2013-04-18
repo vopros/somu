@@ -9,7 +9,7 @@ set :views, 'templates'
 set :styles, 'styles'
 
 Instajour.configure do |c|
-  c.token = '206005842.5d3b7bd.5a58ba2f68e247a9b97839bf6a5eb6a0'
+  c.token = '206005842.5b9e1e6.dedf79c3c966411ab98253be67dc7f5a'
   c.title = 'George’s photos'
   c.author = 'George'
   c.description = 'Exciting shapes and forms.'
